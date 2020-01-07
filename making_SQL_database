@@ -1,0 +1,12 @@
+CREATE OR REPLACE DATABASE auscope_test;
+
+use auscope_test;
+
+CREATE TABLE IF NOT EXISTS Ke (
+  ExpID VARCHAR(10) NOT NULL PRIMARY KEY, 
+  Performance decimal(4,3) NOT NULL);
+
+INSERT INTO Ke (ExpID,Performance)
+VALUES('R1879',0.77),
+      ('AUA042',0.66);
+ 
