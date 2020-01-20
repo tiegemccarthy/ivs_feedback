@@ -5,7 +5,12 @@ from datetime import datetime
 import MySQLdb as mariadb
 import sys
 
-def problemFinder(text_section):
+# This script can be used standalone to add database entries for a given experiment code. First argument should be the experiment code (in lower case) and second database name.
+# Eventually, this script will be implemented as part of a system that constantly updates an SQL database for new experiments. This section is mostly complete now, though I am sure some bits can be made much cleaner.
+
+# Future things to do: extract the date that the analysis was completed on. This is contained in the spool file and will be useful when trying to search for updated analysis reports. I have not yet figured out how to download updated reports though.
+
+def problemFinder(text_section): # searches first section of text for a problem, creates two lists one with a boolean value, the other with at least 1 line of the string where a problem is mentioned
     stations = ['KATH12M', 'YARRA12M', 'HOBART12', 'HOBART26']
     problem_bool = []
     problem_string = []
@@ -23,7 +28,7 @@ def problemFinder(text_section):
 def percent2decimal(percent_string):
     return float(percent_string.strip('%'))/100
 
-def stationPerformance(text_section):
+def stationPerformance(text_section): # Extracts the percentage of useable scans for each station.
     stations = ['KATH12M', 'YARRA12M', 'HOBART12', 'HOBART26']
     station_performance = []
     for ant in stations:
@@ -37,7 +42,7 @@ def stationPerformance(text_section):
     
     return station_performance
     
-def metaData(text_section):
+def metaData(text_section): # Extracts meta data from the analysis report file.
     date = re.findall("(?<=\$).{7}",text_section,re.MULTILINE)
     date = datetime.strptime(date[0], '%y%b%d').strftime('%Y-%m-%d')
     exp_code = re.findall("(?<=Analysis Report for\s)(.*?(?=\s))",text_section,re.MULTILINE)
@@ -45,7 +50,7 @@ def metaData(text_section):
     return exp_code[0], analyser[0], date
     # pretty sure this doesn't work post-2099, but like... you shouldn't be using this trash then... right?
     
-def stationPositions(text_section):
+def stationPositions(text_section): # extracts station positons from the spoolfile
     stations = ['KATH12M', 'YARRA12M', 'HOBART12', 'HOBART26']
     station_positions = []
     for ant in stations:
