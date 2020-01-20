@@ -4,9 +4,44 @@ use auscope_test;
 
 CREATE TABLE IF NOT EXISTS Ke (
   ExpID VARCHAR(10) NOT NULL PRIMARY KEY, 
-  Performance decimal(4,3) NOT NULL);
+  Performance decimal(4,3) NOT NULL,
+  Date DATETIME,
+  Problem BIT(1),
+  Problem_String VARCHAR(100),
+  Analyser VARCHAR(10) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS Yg (
+  ExpID VARCHAR(10) NOT NULL PRIMARY KEY, 
+  Performance decimal(4,3) NOT NULL,
+  Date DATETIME,
+  Problem BIT(1),
+  Problem_String VARCHAR(100),
+  Analyser VARCHAR(10) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS Hb (
+  ExpID VARCHAR(10) NOT NULL PRIMARY KEY, 
+  Performance decimal(4,3) NOT NULL,
+  Date DATETIME,
+  Problem BIT(1),
+  Problem_String VARCHAR(100),
+  Analyser VARCHAR(10) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS Ho (
+  ExpID VARCHAR(10) NOT NULL PRIMARY KEY, 
+  Performance decimal(4,3) NOT NULL,
+  Date DATETIME,
+  Problem BIT(1),
+  Problem_String VARCHAR(100),
+  Analyser VARCHAR(10) NOT NULL);
 
 INSERT INTO Ke (ExpID,Performance)
 VALUES('R1879',0.77),
       ('AUA042',0.66);
  
+ALTER TABLE Ke
+ADD Problem BIT(1);
+
+ALTER TABLE Ke
+ADD Problem_String VARCHAR(100);
+
+ADD
