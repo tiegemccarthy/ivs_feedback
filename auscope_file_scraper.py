@@ -91,5 +91,5 @@ def main(exp_code, db_name):
     conn.close() 
     
 if __name__ == '__main__':
-    # auscope_file_scraper.py executed as a script
+    # analysis_downloader.py executed as a script
     main(sys.argv[1], sys.argv[2])
