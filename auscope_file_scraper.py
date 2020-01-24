@@ -35,7 +35,8 @@ def stationPerformance(text_section): # Extracts the percentage of useable scans
         regex = ant + ".*"
         performance = re.findall(regex,text_section,re.MULTILINE)
         if len(performance) > 0:
-            performance = percent2decimal(performance[0].split()[4])
+            percentage = [s for s in performance[0].split() if '%' in s]
+            performance = percent2decimal(percentage[0])
             station_performance.append(performance)
         else:
             station_performance.append(None)
@@ -51,18 +52,21 @@ def metaData(text_section): # Extracts meta data from the analysis report file.
     # pretty sure this doesn't work post-2099, but like... you shouldn't be using this trash then... right?
     
 def stationPositions(text_section): # extracts station positons from the spoolfile
-    stations = ['KATH12M', 'YARRA12M', 'HOBART12', 'HOBART26']
+    stations = ["KATH12M", "YARRA12M", "HOBART12", "HOBART26"]
     station_positions = []
     for ant in stations:
         regex = ant + ".*[XYZ]\sComp.*"
         positions = re.findall(regex,text_section,re.MULTILINE)
         positions = [i.split()[5] for i in positions]
         station_positions.append(positions)
+    for i in range(0, len(station_positions)):
+        if station_positions[i] == []:
+            station_positions[i] = ['NULL','NULL','NULL'] # this is a gross hacky way to deal with when a station exists in an analyis report but not the spool file.
     return station_positions
     
 def main(exp_code, db_name):
-    file_report = str(exp_code) + '_report.txt'
-    file_spool = str(exp_code) + '_spoolfile.txt'
+    file_report = 'analysis_reports/' + str(exp_code) + '_report.txt'
+    file_spool = 'analysis_reports/' + str(exp_code) + '_spoolfile.txt'
     with open(file_report) as file:
         contents_report = file.read()
         sections = contents_report.split('-----------------------------------------')
@@ -75,19 +79,17 @@ def main(exp_code, db_name):
     position = stationPositions(contents_spool)
     
     sql_command = []
-    station_id = ['Ke', 'Yg', 'Hb', 'Ho']
+    station_id = ["Ke", "Yg", "Hb", "Ho"]
     for i in range(0, len(performance)):
          if performance[i] == None:
-            break
+            continue
          else:
-            sql_station = "INSERT IGNORE INTO " + station_id[i] + " (ExpID, Performance, Date, Pos_X, Pos_Y, Pos_Z, Problem, Problem_String, Analyser) VALUES ('{}', {},'{}', {}, {}, {}, {}, '{}' , '{}');".format(meta[0], performance[i], meta[2], position[i][0], position[i][1], position[i][2], problems[0][i], problems[1][i], meta[1])
-            sql_command.append(sql_station)
-    import MySQLdb as mariadb
-    conn = mariadb.connect(user='root', passwd='', db=str(db_name))
-    cursor = conn.cursor()
-    for i in range(0,len(sql_command)):
-        cursor.execute(sql_command[i])
-    conn.commit()
+            sql_station = "INSERT IGNORE INTO {} (ExpID, Performance, Date, Pos_X, Pos_Y, Pos_Z, Problem, Problem_String, Analyser) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);".format(station_id[i])
+            data = [meta[0], performance[i], meta[2], position[i][0], position[i][1], position[i][2], problems[0][i], problems[1][i], meta[1]]
+            conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
+            cursor = conn.cursor()
+            cursor.execute(sql_station, data)
+            conn.commit()
     conn.close() 
     
 if __name__ == '__main__':

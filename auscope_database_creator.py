@@ -6,14 +6,15 @@ import os
 import MySQLdb as mariadb
 import auscope_file_scraper
 import analysis_downloader
+import sys
 
    
 def main(master_schedule, db_name):
     # CREATE DATABASE IF REQUIRED
     station_id = ['Ke', 'Yg', 'Hb', 'Ho']
-    conn = mariadb.connect(user='root', passwd='')
+    conn = mariadb.connect(user='auscope', passwd='password')
     cursor = conn.cursor()
-    query = "CREATE IF NOT EXISTS DATABASE " + db_name +";"
+    query = "CREATE DATABASE IF NOT EXISTS " + db_name +";"
     cursor.execute(query)
     conn.commit()
     query = "USE " + db_name
@@ -28,18 +29,15 @@ def main(master_schedule, db_name):
     analysis_downloader.main(master_schedule, db_name)
     # SCRAPE FILES THAT ARENT IN THE DATABASE
     valid_experiments = analysis_downloader.validExpFinder(master_schedule)
-    existing_experiments = checkExistingData(str(db_name))
+    existing_experiments = analysis_downloader.checkExistingData(str(db_name))
     experiments_to_add = [x for x in valid_experiments if x not in existing_experiments]
     for exp in experiments_to_add:
         exp = exp.lower()
-        auscope_file_scraper.main(exp, db_name)
-    
-    
-    
+        if os.path.isfile(os.getcwd()+'/analysis_reports/'+ exp +'_report.txt'):
+            auscope_file_scraper.main(exp, db_name)
    
-   
-if __name__='__main__':
-    main()
+if __name__ == '__main__':
+    main(sys.argv[1], sys.argv[2])
 
 
 
