@@ -1,0 +1,563 @@
+
+TIMETAG 2019/01/16 16:44:05 UTC
+MK3DB_VERSION 3
+. vgosDbProcLogs: Library ID: SgLib-0.6.3 (Rebma) released on 26 Sep, 2018
+. vgosDbProcLogs: Driver  ID: vgosDbProcLogs-0.4.3 (Deiga) released on 26 Sep, 2018
+. vgosDbProcLogs: User    ID: David Gordon <David.Gordon-1@nasa.gov>, GSFC VLBI Analysis Center
+. vgosDbProcLogs: User command: "/500/slb/SgLib/bin/vgosDbProcLogs 19JAN02XA_V002_iGSFC_kall.wrp"
+. vgosDbProcLogs: Input data  : ./19JAN02XA_V002_iGSFC_kall.wrp
+. vgosDbProcLogs: the session R1875 (19JAN02XA) has been imported from vgosDb data set
+w readFile: got a duplicate record " Ca CAMBRIDG --------- ---- Cambridge, UK (VLBA)" for the station name "CAMBRIDG" in the ns-codes file [/500/oper/master/ns-codes.txt]
+w readFile: got a duplicate record " Cb CAMBRIDG --------- ---- Cambridge, UK (Ryle)" for the station name "CAMBRIDG" in the ns-codes file [/500/oper/master/ns-codes.txt]
+w readFile: got a duplicate record " Ef EFLSBERG 14209S001 7203 Effelsberg, Germany (originally Mk4, now common EVN usage)" for the station name "EFLSBERG" in the ns-codes file [/500/oper/master/ns-codes.txt]
+w readFile: got a duplicate record " Jv JODRELL2 --------- ---- VLBA, Jodrell Bank, UK" for the station name "JODRELL2" in the ns-codes file [/500/oper/master/ns-codes.txt]
+. importDataFromLogFiles: checking [/500/sessions/2019/r1875/] directory for station log files
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875ht.log, a log file for HART15M station
+w readLogFile: station HART15M: cannot determine proper cable sign from cable_diff_is pattern, the string is: "2019.002.16:36:01.13;"Cable difference is: na"
+. readLogFile: station HART15M: collected operator's comments: 
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Session r1875 ready message for Hart15M.
+. readLogFile: station HART15M: 2019/01/02 16:36:01: ;"----------------------------------------
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Comments:
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Hart15M is ready to start R1875
+. readLogFile: station HART15M: 2019/01/02 16:36:01: All systems nominal
+. readLogFile: station HART15M: 2019/01/02 16:36:01: First source: 0202+319 at 17:03:11  UT
+. readLogFile: station HART15M: 2019/01/02 16:36:01: FMOUT-GPS: 9.4500 microseconds
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Wx:  Temperature (C): 23.1  Pressure (mBar): 862.5  Humidity (%): 75.15
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Sky Conditions: 20-30% cloud, hazy otherwise
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Cable difference is: na
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Pointing values: na
+. readLogFile: station HART15M: 2019/01/02 16:36:01: Tsys (x1/s/x2): 36.1/44.0/39.4
+. readLogFile: station HART15M: 2019/01/02 16:36:29: weather conditions: 20-30% cloud and hazy oterwise
+. readLogFile: station HART15M: 2019/01/02 17:03:13: Session r1875 auto-start message for Hart15M.
+. readLogFile: station HART15M: 2019/01/02 17:03:13: ;"---------------------------------------------
+. readLogFile: station HART15M: 2019/01/02 17:03:13: Started recording with source: 0202+319 at 002.17:03:11 UT
+. readLogFile: station HART15M: 2019/01/02 17:28:27: weather conditions: 30-40% cloud and hazy oterwise
+. readLogFile: station HART15M: 2019/01/02 22:09:10: weather conditions: cloudy, lightning
+. readLogFile: station HART15M: 2019/01/03 05:46:05: weather conditions: ~60% cloud cover
+. readLogFile: station HART15M: 2019/01/03 16:52:46: weather conditions: 40% cloud cover"
+. readLogFile: station HART15M: 2019/01/03 17:00:42: weather conditions: 40% cloud cover"
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Session r1875 stop message for Hart15M.
+. readLogFile: station HART15M: 2019/01/03 17:00:46: ;"---------------------------------------
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Comments:
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Hart15M has completed R1875
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Weather conditions: 30-40% cloud cover and hazy at start, ~60% cloud cover midway
+. readLogFile: station HART15M: 2019/01/03 17:00:46: through and 40% cloud cover at end
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Data will be e-shipped to Bonn
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Disk Inventory: A 0, B 0, C 0, D 0, E 0, F 0, G 1, H 0, (other larger) 7
+. readLogFile: station HART15M: 2019/01/03 17:00:46: Observation finished at: 16:59:55 UT
+. readLogFile: station HART15M: 38815 strings of the log file (2M) were read
+. verifyReadings: station HART15M: insufficient number (0) of cable calibrations; skipped
+w verifyReadings: station HART15M: cannot find any usable cable calibrations
+. propagateData: station HART15M: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875is.log, a log file for ISHIOKA station
+. readLogFile: station ISHIOKA: 13449 strings of the log file (717K) were read (507 strings were skipped)
+. verifyReadings: station ISHIOKA: insufficient number (0) of cable calibrations; skipped
+w verifyReadings: station ISHIOKA: cannot find any usable cable calibrations
+. propagateData: station ISHIOKA: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875ke.log, a log file for KATH12M station
+w readLogFile: station KATH12M: the scan name "002-2203b" will be replaced with "002-2222", looks like discontinuity in the log file
+w readLogFile: station KATH12M: the source name "1144-379" will be replaced with "1806+456", looks like discontinuity in the log file
+w readLogFile: station KATH12M: the scan name "002-2304b" will be replaced with "003-0055", looks like discontinuity in the log file
+w readLogFile: station KATH12M: the source name "2052-474" will be replaced with "1034-293", looks like discontinuity in the log file
+w readLogFile: station KATH12M: the scan name "003-0303" will be replaced with "003-0352", looks like discontinuity in the log file
+w readLogFile: station KATH12M: the source name "1519-273" will be replaced with "1751+288", looks like discontinuity in the log file
+. readLogFile: station KATH12M: collected operator's comments: 
+. readLogFile: station KATH12M: 2019/01/02 17:22:01: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station KATH12M: 2019/01/02 17:22:01: Remote access: user with alias 'oper' logged out
+. readLogFile: station KATH12M: 2019/01/02 17:22:01: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station KATH12M: 2019/01/02 17:22:05: Remote access: user 'NOAUTH' (alias '') tried to log in, but failed
+. readLogFile: station KATH12M: 2019/01/02 17:22:05: Remote access: user 'NOAUTH' (alias '') tried to log in, but failed
+. readLogFile: station KATH12M: 2019/01/02 21:39:47: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station KATH12M: 2019/01/02 21:39:48: Remote access: user with alias 'oper(1)' logged out
+. readLogFile: station KATH12M: 2019/01/02 21:39:48: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station KATH12M: 2019/01/02 22:04:03: Comment from 'oper(1)': "reconfigure DBBC
+. readLogFile: station KATH12M: 2019/01/02 22:05:53: Comment from 'oper(1)': "rebooting dbbc
+. readLogFile: station KATH12M: 2019/01/02 23:03:04: Comment from 'oper(1)': "shutting down dbbc for  a cooldown
+. readLogFile: station KATH12M: 2019/01/02 23:36:05: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station KATH12M: 2019/01/02 23:39:11: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station KATH12M: 2019/01/02 23:39:31: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station KATH12M: 2019/01/02 23:39:32: Remote access: user with alias 'oper(1)' logged out
+. readLogFile: station KATH12M: 2019/01/02 23:39:32: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station KATH12M: 2019/01/03 00:52:28: Comment from 'oper(1)': "resume schedule 003-0055
+. readLogFile: station KATH12M: 2019/01/03 03:04:39: Remote access: user with alias 'oper(1)' logged out
+. readLogFile: station KATH12M: 2019/01/03 03:44:34: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station KATH12M: 2019/01/03 03:44:34: Remote access: user with alias 'oper(1)' logged out
+. readLogFile: station KATH12M: 2019/01/03 03:44:35: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Checklist "During observation"
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Sent by warren (user alias: oper(1))
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Katherine Checklist OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Antenna: drives OK OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Antenna : on source and tracking OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Data: LO Locked OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Data: Autocorrelations OK OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Time: delays OK, stable and within 1us (clkoff, maserdelay) NOK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Time: Maser status OK OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Mark5: mk5=mode? correct OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Mark5: mk5=dot? response nominal OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-237) OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Meteorology: Weather (wth) being logged OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=clear sky) OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: System: Any problems or concerns logged OK
+. readLogFile: station KATH12M: 2019/01/03 05:27:34: Additional notes: dbbc delay still drifting but slower this session
+. readLogFile: station KATH12M: 2019/01/03 05:28:57: Comment from 'oper(1)': "delay to bbc steadily growing but will continue recording regardless
+. readLogFile: station KATH12M: 2019/01/03 05:29:26: Comment from 'oper(1)': "unable to fix delay with restarts and reconfigures
+. readLogFile: station KATH12M: 2019/01/03 05:39:57: Comment from 'oper(1)': "fmset to set delay back to 0.29 us
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Checklist "During observation"
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Sent by Tiege (user alias: oper)
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Katherine Checklist OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Antenna: drives OK OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Antenna : on source and tracking OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Data: LO Locked OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Data: Autocorrelations OK OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Time: delays OK, stable and within 1us (clkoff, maserdelay) OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Time: Maser status OK OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Mark5: mk5=mode? correct OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Mark5: mk5=dot? response nominal OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-240.65) OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Meteorology: Weather (wth) being logged OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=20% cloud cover) OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: System: Any problems or concerns logged OK
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: Additional notes: Delay still drifting, we have left experiment going. Will need someone
+. readLogFile: station KATH12M: 2019/01/03 09:55:55: on-site to check out the mk5.
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Checklist "During observation"
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Sent by Patrick (user alias: oper)
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Katherine Checklist OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Antenna: drives OK OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Antenna : on source and tracking OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Data: LO Locked OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Data: Autocorrelations OK OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Time: delays OK, stable and within 1us (clkoff, maserdelay) NOK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Time: Maser status OK OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Mark5: mk5=mode? correct OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Mark5: mk5=dot? response nominal OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-245.07) OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Meteorology: Weather (wth) being logged OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=75% cloud, no rain) OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: System: Any problems or concerns logged OK
+. readLogFile: station KATH12M: 2019/01/03 14:37:54: Additional notes: delays still drifting - won't fix
+. readLogFile: station KATH12M: 2019/01/03 17:00:26: Checklist "After observation"
+. readLogFile: station KATH12M: 2019/01/03 17:00:26: Sent by Patrick (user alias: oper)
+. readLogFile: station KATH12M: 2019/01/03 17:00:26: Antenna: back in stow position OK
+. readLogFile: station KATH12M: 2019/01/03 17:00:26: Copy and paste relevant Handover notes from the wiki to the Additional Notes section below OK
+. readLogFile: station KATH12M: 2019/01/03 17:00:26: Close this window, then process the log and send the end experiment email OK
+. readLogFile: station KATH12M: 2019/01/03 17:00:26: Additional notes:
+. readLogFile: station KATH12M: 158061 strings of the log file (11M) were read (2984 strings were skipped)
+. verifyReadings: station KATH12M: insufficient number (0) of cable calibrations; skipped
+w verifyReadings: station KATH12M: cannot find any usable cable calibrations
+. propagateData: station KATH12M: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875kk.log, a log file for KOKEE station
+. readLogFile: station KOKEE: collected operator's comments: 
+. readLogFile: station KOKEE: 2019/01/02 16:38:11: kokee park geophysical observatory, r1875, jan 2019, operator-chang
+. readLogFile: station KOKEE: 2019/01/02 16:39:26: cable cal follows starting with an added cable lengh of 52 usec
+. readLogFile: station KOKEE: 2019/01/02 16:39:51: now cable cal with the normal operational cable length
+. readLogFile: station KOKEE: 2019/01/02 16:40:12: cable measurement just taken was 52.8 usec
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: Session r1875 ready message for Kokee Park.
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: ;"-------------------------------------------
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: First source: 0955+476 at 002/1700:00  UT
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: FMOUT-GPS: 52.8 microseconds
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: Wx:  Temperature (C): 11.8  Pressure (mBar): 888.7  Humidity (%): 92.1
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: Sky Conditions: clear sky
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: Cable difference is: longer cable makes the reading smaller by
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: 52.8 microseconds and is nominal
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: Pointing values:
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: SEFD  X/S       Source          Az/El      Offset1  Offset2
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: 1372/592     virgoa         194/79      0.003    0.011
+. readLogFile: station KOKEE: 2019/01/02 16:43:20: Tsys (x1/s/x2): 64/33/38
+. readLogFile: station KOKEE: 2019/01/02 16:44:23: temp. halting schedule to gain access to antenna.
+. readLogFile: station KOKEE: 2019/01/02 17:00:07: Session r1875 auto-start message for Kokee Park.
+. readLogFile: station KOKEE: 2019/01/02 17:00:07: ;"------------------------------------------------
+. readLogFile: station KOKEE: 2019/01/02 17:00:07: Started recording with source: 0955+476 at 002.17:00:00 UT
+. readLogFile: station KOKEE: 2019/01/02 17:57:36: weather-clear sky
+. readLogFile: station KOKEE: 2019/01/02 19:51:03: left in 52 usec length of cable after intensive
+. readLogFile: station KOKEE: 2019/01/02 19:59:43: weather-clear sky
+. readLogFile: station KOKEE: 2019/01/02 20:58:55: weather-clear sky
+. readLogFile: station KOKEE: 2019/01/02 21:59:13: weather-clear sky
+. readLogFile: station KOKEE: 2019/01/02 22:59:36: weather-clear sky
+. readLogFile: station KOKEE: 2019/01/02 23:59:47: weather-few scattered clouds
+. readLogFile: station KOKEE: 2019/01/03 01:00:28: weather-partly cloudy
+. readLogFile: station KOKEE: 2019/01/03 01:59:48: weather-partly cloudy
+. readLogFile: station KOKEE: 2019/01/03 03:00:01: weather-mostly clear sky
+. readLogFile: station KOKEE: 2019/01/03 03:59:55: weather- clear sky
+. readLogFile: station KOKEE: 2019/01/03 05:00:16: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 06:00:13: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 07:00:09: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 08:00:11: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 08:59:39: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 10:00:06: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 11:59:40: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 13:00:15: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 13:59:46: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 14:58:50: weather-few stars visible
+. readLogFile: station KOKEE: 2019/01/03 16:01:05: weather-many stars visible
+. readLogFile: station KOKEE: 2019/01/03 17:01:50: formatter minus gps reads 9.199 usec at end of experiment
+. readLogFile: station KOKEE: 2019/01/03 17:01:59: starting post experiment cable cal measurement
+. readLogFile: station KOKEE: 2019/01/03 17:02:39: cable cal measured at -51.4 usec
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: Session r1875 stop message for Kokee Park.
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: ;"------------------------------------------
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: Comments:
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: Scans 002-1700 through 002-1812 ran with normal operational cable length.  52 usec
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: length of cable left in after intensive I19002 from scan 002-1947a through the end
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: of the schedule.
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: Disk# BKG+0136 will be shipped out via FedEx AWB# 7740 7783 2466.
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: Disk Inventory: A 0, B 2, C 0, D 11, E 4, F 0, G 1, H 1, (other larger) 3
+. readLogFile: station KOKEE: 2019/01/03 17:02:47: Observation finished at: 003/1659:55 UT
+. readLogFile: station KOKEE: 46657 strings of the log file (2M) were read (456 strings were skipped)
+. propagateData: station KOKEE: 209 exact matches of cable calibrations were found
+. propagateData: station KOKEE: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875ny.log, a log file for NYALES20 station
+w readLogFile: station NYALES20: the scan name "003-0154a" will be replaced with "003-0724", looks like discontinuity in the log file
+w readLogFile: station NYALES20: the source name "0059+581" will be replaced with "0322+222", looks like discontinuity in the log file
+. readLogFile: station NYALES20: collected operator's comments: 
+. readLogFile: station NYALES20: 2019/01/02 16:47:21: Ny-Alesund 20m antenna
+. readLogFile: station NYALES20: 2019/01/02 16:47:30: Zenith tsys follows:
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: Session r1875 ready message for Ny-Alesund.
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: ;"-------------------------------------------
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: First source: 0955+476 at 17:00:00  UT
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: GPS-FMOUT: 155.96 microseconds
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: Wx:  Temperature (C): -10.9  Pressure (mBar): 1006.3  Humidity (%): 75.1
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: Sky Conditions: cloudy
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: Cable difference is: longer cable makes the reading larger by
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: 656.2 microseconds and is nominal
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: Pointing values:
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: SEFD  X/S       Source          Az/El      Offset1  Offset2
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: 1093/1381    CygnusA        248/46      0.0169   -0.0098
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: 1192/1401    CasA           195/70      0.0443   -0.0058
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: 1262/1515    TaurusA         94/23      0.0173   -0.0128
+. readLogFile: station NYALES20: 2019/01/02 16:50:40: Tsys (IFA/IFB/IFC): 54/69/161
+. readLogFile: station NYALES20: 2019/01/02 17:00:04: Session r1875 auto-start message for Ny-Alesund.
+. readLogFile: station NYALES20: 2019/01/02 17:00:04: ;"------------------------------------------------
+. readLogFile: station NYALES20: 2019/01/02 17:00:04: Started recording with source: 0955+476 at 002.17:00:00 UT
+. readLogFile: station NYALES20: 2019/01/03 17:01:21: Zenith tsys follows
+. readLogFile: station NYALES20: 2019/01/03 17:04:22: Session r1875 stop message for Ny-Alesund.
+. readLogFile: station NYALES20: 2019/01/03 17:04:22: ;"------------------------------------------
+. readLogFile: station NYALES20: 2019/01/03 17:04:22: Comments:
+. readLogFile: station NYALES20: 2019/01/03 17:04:22: Measurement stopped due to strong wind between 00:41:28-07:30:01
+. readLogFile: station NYALES20: 2019/01/03 17:04:22: Disk Inventory: A 0, B 0, C 0, D 7, E 0, F 0, G 0, H 0, (other larger) 10
+. readLogFile: station NYALES20: 2019/01/03 17:04:22: Observation finished at: 16:59:55 UT
+. readLogFile: station NYALES20: 64088 strings of the log file (4M) were read (525 strings were skipped)
+w propagateData: station NYALES20: cannot find the scan "003-0719b" in the log file
+. propagateData: station NYALES20: 178 exact matches of cable calibrations were found
+. propagateData: station NYALES20: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875on.log, a log file for ONSALA60 station
+. readLogFile: station ONSALA60: collected operator's comments: 
+. readLogFile: station ONSALA60: 2019/01/02 17:15:24: no snow or rain
+. readLogFile: station ONSALA60: 2019/01/02 18:06:21: no snow or rain
+. readLogFile: station ONSALA60: 2019/01/02 20:06:21: no rain, T=2,9 C, hum=52%
+. readLogFile: station ONSALA60: 2019/01/02 21:37:02: cc=no rain, T=4,2 C, mk5=evlbi
+. readLogFile: station ONSALA60: 2019/01/02 22:03:33: cc=no rain, T=4,6 C,
+. readLogFile: station ONSALA60: 2019/01/03 17:00:09: sendlog result code 0, r1875on.log"
+. readLogFile: station ONSALA60: 69119 strings of the log file (4M) were read
+. propagateData: station ONSALA60: 238 exact matches of cable calibrations were found
+. propagateData: station ONSALA60: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875kv.log, a log file for SEJONG station
+. readLogFile: station SEJONG: 12293 strings of the log file (740K) were read (791 strings were skipped)
+. verifyReadings: station SEJONG: insufficient number (0) of cable calibrations; skipped
+w verifyReadings: station SEJONG: cannot find any usable cable calibrations
+. propagateData: station SEJONG: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875wn.log, a log file for WETTZ13N station
+. readLogFile: station WETTZ13N: collected operator's comments: 
+. readLogFile: station WETTZ13N: 2019/01/02 17:10:58: New time sync due to the prsecs error.
+. readLogFile: station WETTZ13N: 2019/01/02 17:15:59: Observation:        R 1 8 7 5 W n ; 02.01.2019
+. readLogFile: station WETTZ13N: 2019/01/02 17:16:06: ;"                     ==========================
+. readLogFile: station WETTZ13N: 2019/01/02 17:17:37: Delta[UT(C,Wettzell) to UT(Efos-60)] = 1.784 us at 002/16:45 UT.
+. readLogFile: station WETTZ13N: 2019/01/02 17:18:14: Delta[UT(C,Wettzell) to UT(GPS,TAC2)] = 0.90 us at 002/16:45 UT.
+. readLogFile: station WETTZ13N: 2019/01/02 17:18:37: Pointing tested with Casa and found o.k.
+. readLogFile: station WETTZ13N: 2019/01/02 17:18:45: Phasecal o.k.
+. readLogFile: station WETTZ13N: 2019/01/02 17:19:05: Weather: cold; snowfall stopped rigth now.
+. readLogFile: station WETTZ13N: 2019/01/02 22:57:07: neidhardt: start of remote control/attendance
+. readLogFile: station WETTZ13N: 2019/01/02 23:02:26: wx: 87% covered, no rain, no wind
+. readLogFile: station WETTZ13N: 2019/01/03 00:23:05: wx: 87% covered, no rain, no wind
+. readLogFile: station WETTZ13N: 2019/01/03 01:52:49: wx: 96% covered, no rain, no wind
+. readLogFile: station WETTZ13N: 2019/01/03 04:01:44: wx: 16% covered, no rain, no wind
+. readLogFile: station WETTZ13N: 2019/01/03 07:31:09: end of remote control
+. readLogFile: station WETTZ13N: 2019/01/03 16:49:15: Weather: still the same weather: cold; no snowfall; covered;
+. readLogFile: station WETTZ13N: 2019/01/03 16:50:29: Delta[UT(C,Wettzell) to UT(Efos-60)] = 1.784 us at 003/16:45 UT.
+. readLogFile: station WETTZ13N: 2019/01/03 16:50:40: Delta[UT(C,Wettzell) to UT(GPS,TAC2)] = 0.90 us at 003/16:45 UT.
+. readLogFile: station WETTZ13N: 2019/01/03 16:51:36: All scans recorded;
+. readLogFile: station WETTZ13N: 2019/01/03 16:52:14: Again: due to a prsec error message we have resynced the DDBC at the
+. readLogFile: station WETTZ13N: 2019/01/03 16:52:39: beginning of the session. No furher error message seen.
+. readLogFile: station WETTZ13N: 2019/01/03 16:59:40: No technical problems remarked
+. readLogFile: station WETTZ13N: 95416 strings of the log file (6M) were read
+. verifyReadings: station WETTZ13N: insufficient number (0) of cable calibrations; skipped
+w verifyReadings: station WETTZ13N: cannot find any usable cable calibrations
+. propagateData: station WETTZ13N: meteo parameters were found
+. importDataFromLogFiles: processing /500/sessions/2019/r1875/r1875yg.log, a log file for YARRA12M station
+. readLogFile: station YARRA12M: collected operator's comments: 
+. readLogFile: station YARRA12M: 2019/01/02 17:20:47: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/02 17:22:13: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/02 17:22:13: Remote access: user with alias 'oper' logged out
+. readLogFile: station YARRA12M: 2019/01/02 17:22:13: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/02 21:40:06: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/02 21:40:07: Remote access: user with alias 'oper(1)' logged out
+. readLogFile: station YARRA12M: 2019/01/02 21:40:07: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Checklist "During observation"
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Sent by warren (user alias: oper(1))
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Yarragadee Checklist OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Antenna: drives OK OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Antenna : on source and tracking OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Data: LO Locked OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Data: Autocorrelations OK OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Time: delays OK, stable and within 1us (clkoff, maserdelay) OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Time: Maser status OK OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Mark5: mk5=mode? correct OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Mark5: mk5=dot? response nominal OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-5) OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Meteorology: Weather (wth) being logged OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=80% overcast, fine) OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: System: Any problems or concerns logged OK
+. readLogFile: station YARRA12M: 2019/01/02 23:38:51: Additional notes:
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Checklist "During observation"
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Sent by warren (user alias: oper(1))
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Yarragadee Checklist OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Antenna: drives OK OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Antenna : on source and tracking OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Data: LO Locked OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Data: Autocorrelations OK OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Time: delays OK, stable and within 1us (clkoff, maserdelay) OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Time: Maser status OK OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Mark5: mk5=mode? correct OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Mark5: mk5=dot? response nominal OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-8) OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Meteorology: Weather (wth) being logged OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=90% cloud, fine) OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: System: Any problems or concerns logged OK
+. readLogFile: station YARRA12M: 2019/01/03 03:27:31: Additional notes:
+. readLogFile: station YARRA12M: 2019/01/03 09:22:33: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:22:33: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:22:33: Remote access: user 'oper' (alias 'oper(2)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:22:34: Remote access: user 'oper' (alias 'oper(3)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:22:34: Remote access: user 'oper' (alias 'oper(4)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:22:34: Remote access: user 'oper' (alias 'oper(5)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:23:40: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:23:40: Remote access: user with alias 'oper' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:23:40: Remote access: user with alias 'oper(3)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:23:40: Remote access: user with alias 'oper(4)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:39:25: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:25: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:25: Remote access: user 'oper' (alias 'oper(2)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:25: Remote access: user 'oper' (alias 'oper(3)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:28: Remote access: user 'oper' (alias 'oper(4)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:28: Remote access: user 'oper' (alias 'oper(5)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:28: Remote access: user 'oper' (alias 'oper(6)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:39:28: Remote access: user 'oper' (alias 'oper(7)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 09:40:26: Remote access: user with alias 'oper(2)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:40:26: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:40:26: Remote access: user with alias 'oper' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:40:29: Remote access: user with alias 'oper(5)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:40:29: Remote access: user with alias 'oper(4)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:40:29: Remote access: user with alias 'oper(6)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Checklist "During observation"
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Sent by Tiege (user alias: oper(7))
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Yarragadee Checklist OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Antenna: drives OK OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Antenna : on source and tracking OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Data: LO Locked OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Data: Autocorrelations OK OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Time: delays OK, stable and within 1us (clkoff, maserdelay) OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Time: Maser status OK OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Mark5: mk5=mode? correct OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Mark5: mk5=dot? response nominal OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-12.01) OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Meteorology: Weather (wth) being logged OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=clear skies) OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: System: Any problems or concerns logged OK
+. readLogFile: station YARRA12M: 2019/01/03 09:55:14: Additional notes:
+. readLogFile: station YARRA12M: 2019/01/03 10:51:54: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:54: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:54: Remote access: user 'oper' (alias 'oper(2)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:54: Remote access: user 'oper' (alias 'oper(3)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:57: Remote access: user 'oper' (alias 'oper(4)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:57: Remote access: user 'oper' (alias 'oper(5)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:57: Remote access: user 'oper' (alias 'oper(6)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:51:57: Remote access: user 'oper' (alias 'oper(7)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 10:52:55: Remote access: user with alias 'oper' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 10:52:55: Remote access: user with alias 'oper(2)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 10:52:55: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 10:52:58: Remote access: user with alias 'oper(7)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 10:52:58: Remote access: user with alias 'oper(5)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 10:52:58: Remote access: user with alias 'oper(6)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:27:32: Remote access: user with alias 'oper(3)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:27:37: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:27:37: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:27:37: Remote access: user 'oper' (alias 'oper(2)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:28:37: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:28:37: Remote access: user with alias 'oper' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:50:34: Remote access: user with alias 'oper(4)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:50:54: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:54: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:54: Remote access: user 'oper' (alias 'oper(2)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:55: Remote access: user 'oper' (alias 'oper(3)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:57: Remote access: user 'oper' (alias 'oper(4)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:57: Remote access: user 'oper' (alias 'oper(5)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:57: Remote access: user 'oper' (alias 'oper(6)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:50:57: Remote access: user 'oper' (alias 'oper(7)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 12:51:55: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:51:55: Remote access: user with alias 'oper' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:51:55: Remote access: user with alias 'oper(2)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:51:58: Remote access: user with alias 'oper(6)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:51:58: Remote access: user with alias 'oper(7)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 12:51:58: Remote access: user with alias 'oper(4)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 13:04:34: Remote access: user with alias 'oper(5)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 13:04:54: Remote access: user 'oper' (alias 'oper') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:04:54: Remote access: user 'oper' (alias 'oper(1)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:04:54: Remote access: user 'oper' (alias 'oper(2)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:04:55: Remote access: user 'oper' (alias 'oper(3)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:04:55: Remote access: user 'oper' (alias 'oper(4)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:04:55: Remote access: user 'oper' (alias 'oper(5)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:04:55: Remote access: user 'oper' (alias 'oper(6)') logged in
+. readLogFile: station YARRA12M: 2019/01/03 13:05:55: Remote access: user with alias 'oper(5)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 13:05:55: Remote access: user with alias 'oper(1)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 13:05:55: Remote access: user with alias 'oper(4)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 13:05:55: Remote access: user with alias 'oper' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 13:05:55: Remote access: user with alias 'oper(3)' logged out bye system
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Checklist "During observation"
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Sent by Patrick (user alias: oper(6))
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Yarragadee Checklist OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Antenna: drives OK OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Antenna: Time OK (i.e. SNTP server OK) OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Antenna : on source and tracking OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Data: LO Locked OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Data: Autocorrelations OK OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Time: delays OK, stable and within 1us (clkoff, maserdelay) OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Time: Maser status OK OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Time: Field System time (econtrol StatusMonitor) agrees with station time OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Mark5: mk5=mode? correct OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Mark5: mk5=dot? response nominal OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Mark5: disk_pos OK? Log (actual - expected) in GB (value=-15.07) OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Meteorology: Weather (wth) being logged OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Meteorology: Sky conditions logged (percentage cloud cover, rain etc) (value=clear, no rain) OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Tsys: S-band Tsys OK (~85-100) OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Tsys: X-band Tsys OK (~80-95) OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Log Monitor audio check button sounds audible beep OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Make sure Skype is running for chat with sites and on-call person OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: System: Check and update Handover and Current Issues wiki pages OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: System: Any problems or concerns logged OK
+. readLogFile: station YARRA12M: 2019/01/03 14:37:30: Additional notes:
+. readLogFile: station YARRA12M: 2019/01/03 17:00:22: Checklist "After observation"
+. readLogFile: station YARRA12M: 2019/01/03 17:00:22: Sent by Patrick (user alias: oper(6))
+. readLogFile: station YARRA12M: 2019/01/03 17:00:22: Antenna: back in stow position OK
+. readLogFile: station YARRA12M: 2019/01/03 17:00:22: Copy and paste relevant Handover notes from the wiki to the Additional Notes section below OK
+. readLogFile: station YARRA12M: 2019/01/03 17:00:22: Close this window, then process the log and send the end experiment email OK
+. readLogFile: station YARRA12M: 2019/01/03 17:00:22: Additional notes:
+. readLogFile: station YARRA12M: 51532 strings of the log file (3M) were read (3497 strings were skipped)
+. verifyReadings: station YARRA12M: insufficient number (0) of cable calibrations; skipped
+w verifyReadings: station YARRA12M: cannot find any usable cable calibrations
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -3301.54(%/hr) at the idx 3
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1086.36(%/hr) at the idx 4
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1010.23(%/hr) at the idx 5
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1818.18(%/hr) at the idx 6
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2431.61(%/hr) at the idx 7
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3024.96(%/hr) at the idx 9
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1713.88(%/hr) at the idx 11
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3711.72(%/hr) at the idx 15
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2966.9(%/hr) at the idx 18
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2337.66(%/hr) at the idx 24
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1417.27(%/hr) at the idx 26
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1411.76(%/hr) at the idx 27
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1055.72(%/hr) at the idx 30
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2235.75(%/hr) at the idx 32
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1773.31(%/hr) at the idx 33
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 4152.36(%/hr) at the idx 39
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1764.27(%/hr) at the idx 41
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3428.57(%/hr) at the idx 42
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1154.07(%/hr) at the idx 43
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3271.83(%/hr) at the idx 44
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3527.34(%/hr) at the idx 49
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1117.84(%/hr) at the idx 51
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2951.55(%/hr) at the idx 53
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1730.85(%/hr) at the idx 54
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -3273.32(%/hr) at the idx 55
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2903.46(%/hr) at the idx 58
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1666.67(%/hr) at the idx 59
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2879.54(%/hr) at the idx 63
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2169.07(%/hr) at the idx 64
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2416.23(%/hr) at the idx 68
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -3671.6(%/hr) at the idx 71
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3752.35(%/hr) at the idx 72
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2853.25(%/hr) at the idx 74
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2278.48(%/hr) at the idx 75
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -3556.88(%/hr) at the idx 78
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2222.63(%/hr) at the idx 82
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1572.05(%/hr) at the idx 83
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3787.48(%/hr) at the idx 91
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1494.02(%/hr) at the idx 92
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2973.98(%/hr) at the idx 97
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2927.07(%/hr) at the idx 98
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2448.15(%/hr) at the idx 100
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1142.93(%/hr) at the idx 101
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 4138.41(%/hr) at the idx 154
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2068.85(%/hr) at the idx 155
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1730.52(%/hr) at the idx 167
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1579.16(%/hr) at the idx 168
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 3157.06(%/hr) at the idx 171
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2376(%/hr) at the idx 174
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1473.88(%/hr) at the idx 177
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1271.86(%/hr) at the idx 178
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2369.04(%/hr) at the idx 179
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1458.14(%/hr) at the idx 183
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1283.85(%/hr) at the idx 221
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1076.99(%/hr) at the idx 224
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1559.6(%/hr) at the idx 227
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1832(%/hr) at the idx 228
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2321.87(%/hr) at the idx 230
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1024.2(%/hr) at the idx 231
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1437.74(%/hr) at the idx 232
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1018.5(%/hr) at the idx 237
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1175.63(%/hr) at the idx 251
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -3103.45(%/hr) at the idx 318
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1348.31(%/hr) at the idx 333
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -2926.83(%/hr) at the idx 337
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1578.67(%/hr) at the idx 339
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1401.05(%/hr) at the idx 340
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1215.97(%/hr) at the idx 346
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 1263.34(%/hr) at the idx 347
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1484.15(%/hr) at the idx 351
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, 2517.31(%/hr) at the idx 364
+. cleanMeteoParameters: station YARRA12M has too big rel.humidity rate, -1304.25(%/hr) at the idx 366
+w cleanMeteoParameters: station YARRA12M has more than 10 (72) suspicious big rel.humidity rates, use default humidity instead
+w cleanMeteoParameters: station YARRA12M has too much extremal values (242/54) for rel.humidity, use default humidity instead
+. propagateData: station YARRA12M: meteo parameters were found
+. vgosDbProcLogs: import of data from station log files has been complete
+. createWrapperFileName: the organization name has been adjusted: GSFC => gsf

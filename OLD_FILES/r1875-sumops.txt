@@ -1,0 +1,414 @@
+==================================== r1875 =====================================
+
+Ke : DBBC drifting. Reset/reconfigure few times. Halted to cool down DBBC. (23:02-00:55).
+
+Kk : Warning! 52 usec length of cable left in after intensive I19002.
+
+Kv : Antenna stuck missing few scans and often late on source.
+
+Ma : Did not participate. Problem on the antenna brakes.
+
+Ny : Strong winds (00:44-07:28).
+
+Wn : DBBC resync after third scan (17:10).
+
+
+No problems found for : Ht, Is, On, Yg
+
+================================ r1875ht READY =================================
+
+2019-01-02 16:36:01 <oper@hartrao.ac.za> r1875, Hart15M, Ready-message
+
+Session r1875 ready message for Hart15M.
+----------------------------------------
+Comments: 
+Hart15M is ready to start R1875
+All systems nominal
+
+First source: 0202+319 at 17:03:11  UT
+FMOUT-GPS: 9.4500 microseconds
+Wx:  Temperature (C): 23.1  Pressure (mBar): 862.5  Humidity (%): 75.15
+Sky Conditions: 20-30% cloud, hazy otherwise
+Cable difference is: na
+Pointing values: na
+
+Tsys (x1/s/x2): 36.1/44.0/39.4
+================================ r1875ht START =================================
+
+2019-01-02 17:03:11 <oper@hartrao.ac.za> r1875, Hart15M, Autostart-message
+
+Session r1875 auto-start message for Hart15M.
+---------------------------------------------
+Started recording with source: 0202+319 at 002.17:03:11 UT
+================================= r1875ht STOP =================================
+
+2019-01-03 17:00:46 <oper@hartrao.ac.za> r1875, Hart15M, Stop-message
+
+Session r1875 stop message for Hart15M.
+---------------------------------------
+Comments:
+Hart15M has completed R1875
+Weather conditions: 30-40% cloud cover and hazy at start, ~60% cloud cover midway through and 40% cloud cover at end
+Data will be e-shipped to Bonn
+
+Disk Inventory: A 0, B 0, C 0, D 0, E 0, F 0, G 1, H 0, (other larger) 7
+Observation finished at: 16:59:55 UT
+================================ r1875is READY =================================
+
+2018-12-26 07:09:58 <nozawa-k96xd@mlit.go.jp> [vlbi] r1874, r4874, q18363, q18364, q18365 and r1875, Ishioka, Ready-message
+
+Ishioka is ready for r1874, r4874, q18363, q18364, q18365 and r1875.
+
+First source of r1874 is 3C371 at 360day 17:00:00(UT).
+First source of r4874 is 0300+470 at 361day 18:30:00(UT).
+First source of q18363 is 3C418 at 363day 07:30:00(UT).
+First source of q18364 is 3C371 at 364day 07:30:00(UT).
+First source of q18365 is 2000+472 at 365day 07:00:00(UT).
+First source of r1875 is 0955+476 at 002day 17:00:00(UT).
+
+The data recorder is K5/VSI system.
+All systems are normal.
+
+Weather is cloudy
+Temp:10.8 C, Hum:69.8 %, Pres:999.5 hPa
+FMOUT - GPS = +302.8 nsec at 360-06:58
+Tsys: X-band=46.5 K, S-band=66.1 K (EL=90)
+SEFD: X-band=1525.2 Jy, S-band=2138.8 Jy (Cas-A, AZ=16.6, EL=65.7)
+
+About r1874 data transfer,
+Correlator is BONN.
+data server(BONN) -> io10
+data directory(BONN) -> /data/r1874/is
+data server(GSI) -> iserv02
+data directory(m5b) -> /ddn/vlbi/data/r1874is/m5b
+We will inform BONN, when the data is ready.
+
+About r4874 data transfer,
+Correlator is WASH.
+data server(GSI) -> mizuho
+data directory(m5b) -> /cont2/R4874is_m5b
+We will inform WACO, when the data is ready.
+
+About q18363 data transfer,
+Correlator is GSI.
+data server(Tsukuba) -> iserv02
+data directory(k5) -> /ddn/vlbi/data/q18363is
+
+About q18364 data transfer,
+Correlator is GSI.
+data server(Tsukuba) -> iserv02
+data directory(k5) -> /ddn/vlbi/data/q18364is
+
+About q18365 data transfer,
+Correlator is BONN.
+data server(BONN) -> io10
+data directory(BONN) -> /data/q18365/is
+data server(GSI) -> iserv02
+data directory(m5b) -> /ddn/vlbi/data/q18365is/m5b
+We will inform BONN, when the data is ready.
+
+About r1875 data transfer,
+Correlator is BONN.
+data server(BONN) -> io10
+data directory(BONN) -> /data/r1875/is
+data server(GSI) -> iserv02
+data directory(m5b) -> /ddn/vlbi/data/r1875is/m5b
+We will inform BONN, when the data is ready.
+
+Sincerely,
+Kentaro Nozawa, GSI/AES
+===================================================
+ GSI VLBI group
+ Geospatial Information Authority of Japan
+ e-mail: gsi-vlbi-oper@ml.mlit.go.jp
+ web: http://www.spacegeodesy.go.jp/vlbi/en/
+===================================================
+================================ r1875is START =================================
+
+2019-01-02 17:02:37 <vlbi@spacegeodesy.go.jp> r1875, Ishioka, Start-message
+
+Session r1875 start message for Ishioka
+----------------------------------------------------------------
+Started recording with source 0955+476 at 2019/002/17:00:00UT
+
+FMOUT-GPS : +0.280 microseconds 
+Wx: Temperature(C): 1.9  Pressure(hPa): 1007.5  Humidity(%): 63.0
+================================= r1875is STOP =================================
+
+2019-01-04 00:08:17 <nozawa-k96xd@mlit.go.jp> [vlbi] r1874, r4874, q18363, q18364, q18365 and r1875, Ishioka, Stop-message
+
+Ishioka finished r1874, r4874, q18363, q18364, q18365 and r1875.
+
+Comments:
+All scans were recorded.
+
+--- Automatic measurement results at about 361-16:54 ---
+Temp: 1.8 C, Hum:65.4 %, Pres:992.9 hPa
+FMOUT - GPS = +290.6 nsec at 361-16:54 (UT).
+We could not measure Tsys and SEFD due to a measurement system trouble.
+
+--- Automatic measurement results at about 362-18:28 ---
+Temp: -0.5 C, Hum:61.6 %, Pres:1000.4 hPa
+FMOUT - GPS = +286.2 nsec at 362-18:28 (UT).
+We could not measure Tsys and SEFD due to a measurement system trouble.
+
+--- Automatic measurement results at about 363-08:27 ---
+Temp: 3.5 C, Hum:39.4 %, Pres:1002.5 hPa
+FMOUT - GPS = +280.6 nsec at 363-08:27 (UT).
+We could not measure Tsys and SEFD due to a measurement system trouble.
+
+--- Automatic measurement results at about 364-08:27 ---
+Temp: 3.1 C, Hum:54.5 %, Pres:1010.8 hPa
+FMOUT - GPS = +278.5 nsec at 364-08:27 (UT).
+We could not measure Tsys and SEFD due to a measurement system trouble.
+
+--- Automatic measurement results at about 365-07:59 ---
+Temp: 4.3 C, Hum:52.8 %, Pres:1013.4 hPa
+FMOUT - GPS = +276.4 nsec at 365-07:59 (UT).
+We could not measure Tsys and SEFD due to a measurement system trouble.
+
+--- Automatic measurement results at about 003-16:54 ---
+Temp: -0.9 C, Hum:74.4 %, Pres:1013.7 hPa
+FMOUT - GPS = +273.0 nsec at 003-16:54 (UT).
+We could not measure Tsys and SEFD due to a measurement system trouble.
+
+We put the file "r1874is.log", "r4874is.log", "q18363is.log", "q18364is.log", "q18365is.log" and "r1875is.log" on "cddis.gsfc.nasa.gov".
+
+Sincerely,
+Kentaro Nozawa, GSI/AES
+===================================================
+ GSI VLBI group
+ Geospatial Information Authority of Japan
+ e-mail: gsi-vlbi-oper@ml.mlit.go.jp
+ web: http://www.spacegeodesy.go.jp/vlbi/en/
+===================================================
+================================= r1875ke WIKI =================================
+
+2019-01-03 05:40:00 <auscope-observers@list.utas.edu.au> r1875 Katherine 12m
+
+Disk VSN: NYAL-019/2000 | Data volume at beginning: 0.00 GB 
+Estop was tripped and required Mick to go manually reboot drives. 
+
+1700UT Experiment started okay (Lucas). 
+
+17:30 Maserdelay was reading way off (around 5-7us instead of ~2) so I reconfigured and synced the dbbc and delays have settled to nominal values with an offset of -0.3 (Lucas). 
+
+18:20 DBBC delay shifted dramatically. Delay difference has been slowly drifting also (Lucas). 
+Power cycling both dbbc and mk5, reconfiguring, restarting dimino and resyncing. 
+
+Delays and offsets back to normal. Probably will drift again. Missed scans 1824a to 1836 (Lucas). 
+
+
+
+Offsets gradually shifted again then at 20:40 ish the dbbc delay began shifting. At this point I again reset the dbbc but in the time since I have written this the offsets have shifted again. Something seems seriously wrong (Lucas). 
+
+21:32:20 Ran dbbc=pps_sync to adjust dbbc delay as offsets began to plateau out (Lucas). 
+
+22:03 halted schedule for another dbbc restart , missed scans 002-2203b to 002-2217a (warren) 
+
+22:30 resumed schedule with 002-2222 (w) 
+
+23:02 halted schedule for dbbc 2 hr cool-down, missed scans 002-2304b to 003-0053a (w) 
+
+00:55 resumed at scan 003-0055 (w) 
+
+01:00 dbbc delay still drifting! (w) 
+
+03:03 abandoning experiment dbbc faulty (w) 
+
+03:55 yet another attempt to fix dbbc, to no avail, resumed at 003-0352 (w) 
+
+05:32 recording anyway in case some sense can be made of data (w) 
+
+05:38 fmset to set delay back to 0.29 us
+
+================================ r1875kk READY =================================
+
+2019-01-02 16:43:20 <oper@s2.kpgo.hawaii.edu> r1875, Kokee Park, Ready-message
+
+Session r1875 ready message for Kokee Park.
+-------------------------------------------
+First source: 0955+476 at 002/1700:00  UT
+FMOUT-GPS: 52.8 microseconds
+Wx:  Temperature (C): 11.8  Pressure (mBar): 888.7  Humidity (%): 92.1
+Sky Conditions: clear sky
+Cable difference is: longer cable makes the reading smaller by 
+                     52.8 microseconds and is nominal
+Pointing values:
+SEFD  X/S       Source          Az/El      Offset1  Offset2
+   1372/592     virgoa         194/79      0.003    0.011    
+
+Tsys (x1/s/x2): 64/33/38
+================================ r1875kk START =================================
+
+2019-01-02 17:00:00 <oper@s2.kpgo.hawaii.edu> r1875, Kokee Park, Autostart-message
+
+Session r1875 auto-start message for Kokee Park.
+------------------------------------------------
+Started recording with source: 0955+476 at 002.17:00:00 UT
+================================= r1875kk STOP =================================
+
+2019-01-03 17:02:47 <oper@s2.kpgo.hawaii.edu> r1875, Kokee Park, Stop-message
+
+Session r1875 stop message for Kokee Park.
+------------------------------------------
+Comments:
+Scans 002-1700 through 002-1812 ran with normal operational cable length.  52 usec length of cable left in after intensive I19002 from scan 002-1947a through the end of the schedule.
+
+Disk# BKG+0136 will be shipped out via FedEx AWB# 7740 7783 2466.
+
+Disk Inventory: A 0, B 2, C 0, D 11, E 4, F 0, G 1, H 1, (other larger) 3
+Observation finished at: 003/1659:55 UT
+================================ r1875kv READY =================================
+
+2019-01-03 00:05:05 <lsw860210@gmail.com> r1875, Sejong, Ready-message
+
+FMOUT-GPS: -29.8 usec
+Wx: Temperature (C) -4.5   Pressure (hPa) 1005.6  Humidity (%) 58.5
+================================ r1875kv START =================================
+
+2019-01-03 00:05:57 <lsw860210@gmail.com> r1875 Sejong, Start-message
+
+Session r1875 start-message for Sejong(Kv)
+================================= r1875kv STOP =================================
+
+2019-01-04 00:12:28 <lsw860210@gmail.com> r1875,Sejong,Stop-message
+
+comment:
+================================ r1875ny READY =================================
+
+2019-01-02 16:50:39 <vlbi@kartverket.no> r1875, Ny-Alesund, Ready-message
+
+Session r1875 ready message for Ny-Alesund.
+-------------------------------------------
+First source: 0955+476 at 17:00:00  UT
+GPS-FMOUT: 155.96 microseconds
+Wx:  Temperature (C): -10.9  Pressure (mBar): 1006.3  Humidity (%): 75.1
+Sky Conditions: cloudy
+Cable difference is: longer cable makes the reading larger by 
+                     656.2 microseconds and is nominal
+Pointing values:
+SEFD  X/S       Source          Az/El      Offset1  Offset2
+   1093/1381    CygnusA        248/46      0.0169   -0.0098  
+   1192/1401    CasA           195/70      0.0443   -0.0058  
+   1262/1515    TaurusA         94/23      0.0173   -0.0128  
+
+Tsys (IFA/IFB/IFC): 54/69/161
+================================ r1875ny START =================================
+
+2019-01-02 17:00:00 <vlbi@kartverket.no> r1875, Ny-Alesund, Autostart-message
+
+Session r1875 auto-start message for Ny-Alesund.
+------------------------------------------------
+Started recording with source: 0955+476 at 002.17:00:00 UT
+================================= r1875ny STOP =================================
+
+2019-01-03 17:04:22 <vlbi@kartverket.no> r1875, Ny-Alesund, Stop-message
+
+Session r1875 stop message for Ny-Alesund.
+------------------------------------------
+Comments:
+Measurement stopped due to strong wind between 00:41:28-07:30:01
+
+Disk Inventory: A 0, B 0, C 0, D 7, E 0, F 0, G 0, H 0, (other larger) 10
+Observation finished at: 16:59:55 UT
+================================ r1875on READY =================================
+
+2019-01-02 15:18:37 <rudiger.haas@chalmers.se> R1.875 ready message for ONSAL60
+
+ONSAL60 is ready for R1.875:
+
+Weather:
+2019.002.11:23:33.76/wx/2.4,1028.7,47.4,9.0,329.4
+
+Sky conditions: 10 % cc
+
+Pointing:
+2019.002.11:33:10.24#fivpt#xoffset   59.4981   57.2602   0.00182  -0.00189  0.00122  0.00111 1 1 4u   casa
+
+SEFD:
+2019.002.12:31:36.62#onoff#    source       Az   El  De   I P   Center   Comp   Tsys  SEFD  Tcal(j) Tcal(r)
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 1l   1 r   8208.99 0.9777 59.72 1429.3  78.862  1.23
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 8l   2 r   8928.99 0.9812 54.96 1295.6  70.895  1.21
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 1u   1 r   8216.99 1.0117 61.51 1237.3  64.017  1.04
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 2u   1 r   8256.99 1.0145 61.94 1391.1  66.620  1.16
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 3u   1 r   8356.99 1.0052 55.76 1287.3  73.527  1.19
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 4u   1 r   8516.99 1.0090 52.79 1225.1  67.103  1.19
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 5u   2 r   8736.99 1.0075 51.82 1213.3  66.233  1.21
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 6u   2 r   8856.99 1.0069 49.00 1257.6  78.701  1.32
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 7u   2 r   8916.99 1.0146 53.12 1299.8  72.843  1.26
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 8u   2 r   8936.99 0.9959 54.52 1305.0  70.246  1.23
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 9u   3 r   2229.99 1.0491 179.3 5237.8 205.936  1.46
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 au   3 r   2249.99 1.0715 190.9 5542.9 204.307  1.45
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 bu   3 r   2269.99 1.0208 175.1 5243.2 204.909  1.50
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 cu   3 r   2299.99 1.0057 158.8 4941.0 258.230  1.56
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 du   4 r   2349.99 1.0054 146.0 4523.6 242.161  1.55
+2019.002.12:31:36.62#onoff#VAL casa        65.4 64.4 eu   4 r   2369.99 0.9906 133.9 4250.5 227.308  1.59
+2019.002.12:31:36.62#onoff#    source       Az   El  De   I P   Center   Comp   Tsys  SEFD  Tcal(j) Tcal(r)
+
+GPS-DBBC:
+2019.002.12:33:25.16/gps-fmout/+2.20883807246341E-005
+
+First source:
+0955+476 at 17:00 UT
+================================ r1875on START =================================
+
+2019-01-02 17:11:01 <rudiger.haas@chalmers.se> R1.875 start message for ONSAL60
+
+ONSAL60 started observing R1.875 on time with first source 0955+476
+================================= r1875on STOP =================================
+
+2019-01-03 17:07:22 <periklis.diamantidis@chalmers.se> R1.875 stop message for ONSAL60
+
+ONSALA60 stopped observing R1.875
+
+no problems to report
+
+<mailto:periklis.diamntidis@chalmers.se>
+
+<mailto:periklis.diamantidis@chalmers.se>
+================================ r1875wn START =================================
+
+2019-01-02 18:48:42 <vlbi@fs.wettzell.de> r1875, Wettzell (Wn), Start-message
+
+Wettzell (Wn) has started Session r1875
+-----------------------------------------------------
+First source: 0955+476 at 17:00:00 UT
+GPS-FMOUT: 1.248 microseconds
+Wx: Temperature (C): -3.0   Pressure (mBar): 944.3    Humidity (%): 85.1
+Sky Conditions: covered
+Pointing tested with Casa and found o.k.
+Tsys (IFA/IFB/IFC): 39/39/317
+
+Note: Wn is listed for I19002, but we did not found any schedule and 
+will not
+
+observe this Intensive with Wn therefore.
+
+Regards,
+
+Wettzell Observatory
+================================= r1875wn STOP =================================
+
+2019-01-03 17:44:56 <vlbi@fs.wettzell.de> r1875, Wettzell (Wn), Stop-message
+
+Wettzell (Wn) has stopped Session r1875
+-----------------------------------------------------
+All scans recorded, no technical problems to report.
+We have resynced the DBBC and the MK5 after the third source, since we
+have got a prsecs error at the beginning, which disappeared after then.
+Wx: Temperature (C): -2.6   Pressure (mBar): 957.3    Humidity (%): 91.1
+Sky Conditions: covered, snowfall now
+Pointing tested with Casa and found o.k.
+Tsys (IFA/IFB/IFC): 22/23/29
+
+Regards,
+
+Wettzell Observatory
+================================= r1875yg WIKI =================================
+
+2019-01-03 05:40:00 <auscope-observers@list.utas.edu.au> r1875 Yarragadee 12m
+
+Disk VSN: USN-0147/2000 | Data volume at beginning: 0.00 GB 
+1700UT Experiment started okay (Lucas).
+================================================================================

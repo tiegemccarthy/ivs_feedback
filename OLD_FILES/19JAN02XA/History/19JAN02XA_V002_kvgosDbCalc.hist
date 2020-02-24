@@ -1,0 +1,28 @@
+
+TIMETAG 2019/01/16 16:32:34 UTC
+MK3DB_VERSION 2
+CALC11.02 Ver. 2016.12.29  Wed Jan 16 11:32:33 2019    bootes
+Calc 11 at GSFC  -DG-
+
+TIMETAG 2019/01/16 16:32:51 UTC
+  vgosDbCalc-0.3.3 (Ri'ik): Library ID: SgLib-0.6.3 (Rebma) released on 26 Sep, 2018
+  vgosDbCalc-0.3.3 (Ri'ik): Driver  ID: vgosDbCalc-0.3.3 (Ri'ik) released on 26 Sep, 2018
+  vgosDbCalc-0.3.3 (Ri'ik): User    ID: David Gordon <David.Gordon-1@nasa.gov>, GSFC VLBI Analysis Center
+  vgosDbCalc-0.3.3 (Ri'ik): User command: "/500/slb/SgLib/bin/vgosDbCalc 19JAN02XA_V001_iMPI_kall.wrp"
+  vgosDbCalc-0.3.3 (Ri'ik): Input data  : ./19JAN02XA_V001_iMPI_kall.wrp
+  vgosDbCalc-0.3.3 (Ri'ik): External a priori setup: 
+  vgosDbCalc-0.3.3 (Ri'ik): SITES    : /500/oper/solve_apriori_files/blokq.c11.dat
+  vgosDbCalc-0.3.3 (Ri'ik): Sources  : /500/oper/solve_apriori_files/blokq.c11.dat
+  vgosDbCalc-0.3.3 (Ri'ik): Ocean    : /500/oper/solve_apriori_files/blokq.c11.dat
+  vgosDbCalc-0.3.3 (Ri'ik): EOPs     : /500/oper/solve_apriori_files/usno_finals.erp
+  vgosDbCalc-0.3.3 (Ri'ik): Tilts    : /500/oper/solve_apriori_files/tilt.dat
+  vgosDbCalc-0.3.3 (Ri'ik): OPTL     : /500/oper/solve_apriori_files/blokq.c11.dat
+  vgosDbCalc-0.3.3 (Ri'ik): the session R1875 (19JAN02XA) has been imported from vgosDb data set
+  vgosDbCalc-0.3.3 (Ri'ik): collected 2 bands: X, S
+  mimicCalcMain2(): processing X-band has been started
+  mimicCalcMain2(): processing X-band has been finished
+  mimicCalcMain2(): processing S-band has been started
+  mimicCalcMain2(): processing S-band has been finished
+  vgosDbCalc-0.3.3 (Ri'ik): running observations through CALC has been complete
+. putDataIntoVgosDb: no clock break information were added to the vgosDb data tree
+. createWrapperFileName: the organization name has been adjusted: MPI => GSFC

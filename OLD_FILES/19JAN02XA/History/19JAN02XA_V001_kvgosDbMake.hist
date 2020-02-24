@@ -1,0 +1,190 @@
+
+TIMETAG 2019/01/16 15:08:34 UTC
+MK3DB_VERSION 1
+. vgosDbMake: Library ID: SgLib-0.6.3 (Rebma) released on 26 Sep, 2018
+. vgosDbMake: Driver  ID: vgosDbMake-0.4.3 (Thelbane) released on 26 Sep, 2018
+. vgosDbMake: User    ID: oper <oper@frontend>, MPIFR correlator
+. vgosDbMake: User command: "/cluster/geosoft/nusolve/bin/vgosDbMake /Exps/r1875/v1/4639/ -t /Exps/r1875/v1/4639/r1875.corr -o /Exps/r1875/EXPORT"
+. vgosDbMake: Input data  : "/Exps/r1875/v1/4639"
+. processFringeFile: skipping the observation Qa.X.16.0GNIBD: the fringe error code is "G"
+. processFringeFile: skipping the observation ai.X.10.0GNIBG: the fringe error code is "G"
+. processFringeFile: skipping the observation aK.S.7.0GNIBL: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.10.0GNIBM: the fringe error code is "G"
+. processFringeFile: skipping the observation aW.X.28.0GNICI: the fringe error code is "H"
+. processFringeFile: skipping the observation QX.S.1.0GNIE0: the fringe error code is "G"
+. processFringeFile: skipping the observation Qa.S.13.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.14.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.17.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.18.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aN.S.33.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aN.X.34.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aW.S.21.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aW.X.22.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.S.19.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.20.0GNIEJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.60.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aN.S.63.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aN.X.64.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aW.S.67.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aW.X.68.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aX.X.66.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.69.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.70.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.S.61.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.62.0GNIEN: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.4.0GNIF1: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.13.0GNIF2: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.18.0GNIF2: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNIFN: the fringe error code is "H"
+. processFringeFile: skipping the observation qa.X.6.0GNIFN: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.4.0GNIGL: the fringe error code is "H"
+. processFringeFile: skipping the observation QK.S.3.0GNIIA: the fringe error code is "G"
+. processFringeFile: skipping the observation ai.X.4.0GNIIG: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.3.0GNIIH: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.1.0GNIIL: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.2.0GNIIL: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNIIO: the fringe error code is "H"
+. processFringeFile: skipping the observation qW.S.9.0GNIIP: the fringe error code is "G"
+. processFringeFile: skipping the observation qX.S.7.0GNIIP: the fringe error code is "G"
+. processFringeFile: skipping the observation Ki.X.8.0GNIIV: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNIIW: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.10.0GNIIW: the fringe error code is "H"
+. processFringeFile: skipping the observation qi.X.6.0GNIIX: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.S.21.0GNIJ0: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.22.0GNIJ0: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.23.0GNIJ0: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.24.0GNIJ0: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.26.0GNIJ0: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.3.0GNIJ1: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNIJ1: the fringe error code is "H"
+. processFringeFile: skipping the observation qa.X.8.0GNIJ4: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.4.0GNIJ6: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.10.0GNIJ8: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.3.0GNIJ9: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.2.0GNIJC: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.2.0GNIJE: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.6.0GNIJI: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.4.0GNIJI: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNIJJ: the fringe error code is "H"
+. processFringeFile: skipping the observation QX.X.2.0GNIK2: the fringe error code is "G"
+. processFringeFile: skipping the observation Qa.X.14.0GNIKA: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.22.0GNIKA: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.20.0GNIKA: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.S.3.0GNIL0: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.4.0GNIL0: the fringe error code is "H"
+. processFringeFile: skipping the observation aW.X.40.0GNILS: the fringe error code is "H"
+. processFringeFile: skipping the observation aX.X.38.0GNILS: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.18.0GNIM1: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNIM8: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.10.0GNIM8: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.S.7.0GNIMF: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.11.0GNIMF: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.13.0GNIMF: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNIMV: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.10.0GNIMV: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNINU: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNINV: the fringe error code is "H"
+. processFringeFile: skipping the observation Ki.S.3.0GNIO0: the fringe error code is "G"
+. processFringeFile: skipping the observation ai.X.2.0GNIOB: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNIOG: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.3.0GNIQN: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNIQN: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.S.7.0GNIQP: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNIQP: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.9.0GNIQP: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.10.0GNIQP: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.S.17.0GNIQS: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.18.0GNIQS: the fringe error code is "H"
+. processFringeFile: skipping the observation QK.X.8.0GNIQU: the fringe error code is "G"
+. processFringeFile: skipping the observation ai.X.8.0GNIR0: the fringe error code is "H"
+. processFringeFile: skipping the observation aX.S.37.0GNIR2: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.47.0GNIR2: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.48.0GNIR2: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.S.35.0GNIR2: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.36.0GNIR2: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.9.0GNIR8: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.10.0GNIR8: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.8.0GNIR8: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.14.0GNIRB: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.18.0GNIRB: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.10.0GNIRG: the fringe error code is "H"
+. processFringeFile: skipping the observation qa.X.8.0GNIRL: the fringe error code is "H"
+. processFringeFile: skipping the observation aN.X.2.0GNIRS: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.4.0GNIRV: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.10.0GNIRW: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.9.0GNIRX: the fringe error code is "H"
+. processFringeFile: skipping the observation qa.S.7.0GNIRX: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.8.0GNISH: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.9.0GNISH: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.10.0GNISH: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.15.0GNISH: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.16.0GNISH: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.S.1.0GNISL: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.2.0GNISL: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.4.0GNISU: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.6.0GNISV: the fringe error code is "H"
+. processFringeFile: skipping the observation qa.X.2.0GNISV: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.4.0GNIT3: the fringe error code is "H"
+. processFringeFile: skipping the observation aX.X.42.0GNITP: the fringe error code is "H"
+. processFringeFile: skipping the observation aj.X.38.0GNITP: the fringe error code is "H"
+. processFringeFile: skipping the observation KN.S.7.0GNITY: the fringe error code is "G"
+. processFringeFile: skipping the observation ai.S.9.0GNIUC: the fringe error code is "H"
+. processFringeFile: skipping the observation qa.S.7.0GNIUC: the fringe error code is "H"
+. processFringeFile: skipping the observation ai.X.2.0GNIUF: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.X.4.0GNIUJ: the fringe error code is "H"
+. processFringeFile: skipping the observation aK.S.23.0GNIUQ: the fringe error code is "G"
+. processFringeFile: skipping the observation qa.X.2.0GNIUU: the fringe error code is "H"
+. processFringeFile: skipping the observation Qa.X.44.0GNIV1: the fringe error code is "H"
+. processFringeFile: skipping the observation aN.X.50.0GNIV1: the fringe error code is "H"
+. getDataFromFringeFiles: 65 second-band-only observations were removed
+. selfCheck: the X-band is set as the primary one
+. selfCheck: skipping the eccentricities set up: incomplete data set 
+  SgVlbiStationInfo: the scan 058486:59115.000000@0537-286 was removed from the list of known scans of the station HART15M
+  SgVlbiStationInfo: the scan 058485:76678.000000@1145-071 was removed from the list of known scans of the station ISHIOKA
+  SgVlbiStationInfo: the scan 058486:51916.000000@0537-286 was removed from the list of known scans of the station ISHIOKA
+  SgVlbiStationInfo: the scan 058485:76678.000000@1145-071 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058485:78993.000000@1145-071 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058485:82839.000000@1759-396 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:05441.000000@1144-379 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:06248.000000@1921-293 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:07591.000000@1954-388 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:09752.000000@2052-474 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:09891.000000@1334-127 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:10642.000000@1741-038 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:24122.000000@0104-408 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:27108.000000@2255-282 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:30613.000000@2052-474 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:30821.000000@0308-611 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:32632.000000@0131-522 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:33340.000000@0308-611 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:44326.000000@0104-408 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:46638.000000@2318+049 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:46951.000000@OJ287    was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:49333.000000@0420-014 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:50812.000000@0308-611 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:51032.000000@0104-408 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:51916.000000@0537-286 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:57380.000000@0823+033 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:57622.000000@1145-071 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058486:59115.000000@0537-286 was removed from the list of known scans of the station KATH12M
+  SgVlbiStationInfo: the scan 058485:82839.000000@1759-396 was removed from the list of known scans of the station KOKEE
+  SgVlbiStationInfo: the scan 058486:57622.000000@1145-071 was removed from the list of known scans of the station KOKEE
+  SgVlbiStationInfo: the scan 058486:46638.000000@2318+049 was removed from the list of known scans of the station NYALES20
+  SgVlbiStationInfo: the scan 058485:79920.000000@0955+476 was removed from the list of known scans of the station ONSALA60
+  SgVlbiStationInfo: the scan 058485:79920.000000@0955+476 was removed from the list of known scans of the station SEJONG
+  SgVlbiStationInfo: the scan 058486:46951.000000@OJ287    was removed from the list of known scans of the station SEJONG
+  SgVlbiStationInfo: the scan 058485:76020.000000@0119+041 was removed from the list of known scans of the station WETTZ13N
+  SgVlbiStationInfo: the scan 058486:05441.000000@1144-379 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:06248.000000@1921-293 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:09752.000000@2052-474 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:09891.000000@1334-127 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:30613.000000@2052-474 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:30821.000000@0308-611 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:32632.000000@0131-522 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:33340.000000@0308-611 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:50812.000000@0308-611 was removed from the list of known scans of the station YARRA12M
+  SgVlbiStationInfo: the scan 058486:57380.000000@0823+033 was removed from the list of known scans of the station YARRA12M
+. selfCheck: the calcInfo's list of stations is empty; set it up: 9 stations in the list
+. checkChannelSetup: the session is ok
+. selfCheck: the session selfcheck has been completed
+. vgosDbMake: the session R1875 (19JAN02XA) has been imported from fringes files

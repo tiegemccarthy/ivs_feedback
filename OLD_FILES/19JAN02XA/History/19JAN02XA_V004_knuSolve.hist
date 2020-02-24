@@ -1,0 +1,44 @@
+
+TIMETAG 2019/01/16 19:29:52 UTC
+MK3DB_VERSION 4
+SgLib-0.6.3 (Rebma): data has been read from vgosDb container specified by /space/vgosDB/2019/19JAN02XA/19JAN02XA_V003_igsf_kall.wrp
+
+TIMETAG 2019/01/16 19:59:46 UTC
+Analyzed by David Gordon (hereafter DG) at Goddard Space Flight Center. Contact info: <David.Gordon-1@nasa.gov>
+DG> R1875: GSFC Analysis  -DG-
+DG> Very difficult ambiguity resolution at KATH12M.
+DG> Two small clock breaks at YARRA12M.
+DG> NuSolve fit of 32.4 psec.
+IVS-R1875: GSFC analysis (DG)
+G-Gxs solution,   60/  60 clocks/atms,    2/  40 constraints, 23.9667-hr gradients.
+Solve fit is 32.72 psec.
+Detected 2 clock breaks
+A clock break marker has been set for YARRA12M at 03 Jan, 2019; 02:01:00.0000
+A clock break marker has been set for YARRA12M at 03 Jan, 2019; 11:32:00.0000
+The following flyby options were used in the solution:
+Station positions flyby file: glo.sit
+Station velocities flyby file: glo.vel
+Source flyby file: 18Oct04.src
+Station axis offset flyby file: glo.axis
+EOP high frequency variations flyby file: NONE
+Station mean gradients flyby file: NONE
+Nutation series flyby file :  NONE
+Nutation offset flyby file :  NONE
+Earth rotation flyby file  :  NONE
+Tectonic plate motion file :  NONE
+Group delay ambiguities were resolved (well, at least, tried to resolve)
+Group delay outliers were processed and editing info has been updated.
+Troposphere and cable cal status for standard solution have been stored.
+Observation dependent contribution status has been stored.
+Reweighting updated for:
+HA-IS HA-KA HA-NY HA-ON HA-SE HA-WE HA-YA IS-KA IS-KO IS-NY 
+IS-ON IS-SE IS-WE IS-YA KA-KO KA-NY KA-ON KA-SE KA-WE KA-YA 
+KO-NY KO-ON KO-SE KO-WE KO-YA NY-ON NY-WE NY-YA ON-WE ON-YA 
+SE-NY SE-ON SE-WE SE-YA WE-YA 
+Solution data configuration: group delays with ionosphere corrections
+Clock and atmosphere constraint information saved.
+Batchmode clock parameterization saved.
+Batchmode atmosphere parameterization saved.
+Ionosphere corrections were evaluated for group delays.
+Barometer calibration and barometer height offset not available.
+Elevation cutoff data stored in database.

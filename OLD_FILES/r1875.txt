@@ -1,0 +1,186 @@
+Session Notes for R1 (Rapid Turnaround Monday) session: r1875
+Prepared by C. Thomas, NVI, Inc./GSFC
+Refer to http://ivscc.gsfc.nasa.gov/program/descrip2018.html#r1
+for the session purpose.
+===========================================================
+----- Parameter listing --------------------------------------
+ Experiment: R1875                       Description IVS-R1
+ Scheduler:  NASA                        Correlator: BONN      
+ Start:      2019-002-17:00:00           End:        2019-003-17:00:00
+ Current yyyyddd:    2019002 (2019.01)  ( 18486 MJD, WED.  2JAN.)
+ Greenwich sidereal time:   23:48:10 (17:00:00 UT)
+ Sun's RA and DEC:   18h 52.2m   -22d 53.7
+===========================================================
+There are no observations for Kokee and Wettzell-North from 
+18:15 U.T.  to 19:45 U.T. Kokee and Wettzell-North will 
+participate in the intensive session during this period.
+===========================================================
+First observations
+Source      Start      DURATIONS                               
+name     yyddd-hhmmss   Ht  Is  Ke  Kk  Ma  Ny  On  Kv  Wn  Yg  
+0955+476 19002-170000|     148 237 249 163 109 249 233 193 223|  
+0202+319 19002-170311|  43  59              59                |  
+===========================================================
+Last observations
+Source      Start      DURATIONS                               
+name     yyddd-hhmmss   Ht  Is  Ke  Kk  Ma  Ny  On  Kv  Wn  Yg  
+2229+695 19003-165451|     295                     295        |  
+0131-522 19003-165517|  62                                  62|  
+1424-418 19003-165802|         113 113                     113|  
+2318+049 19003-165842|  73              73  73  73      73    |  
+===========================================================
+
+   SKED Summary from file ./r1875.skd for experiment R1875   
+      (all scans with at least one subnet station)
+
+ Average number of obs. per baseline per source(normalized by up-time) =   8.0
+ Min =    0.0  Max =   90.0 (Baseline Ht-Ny on 1741-038)   RMS =  11.8
+
+ Total time:       1440 minutes (  24.0 hours).
+
+ Key:     Ht=HART15M    Is=ISHIOKA    Ke=KATH12M    Kk=KOKEE      Ma=MATERA  
+          Ny=NYALES20   On=ONSALA60   Kv=SEJONG     Wn=WETTZ13N   Yg=YARRA12M
+       
+                   Ht   Is   Ke   Kk   Ma   Ny   On   Kv   Wn   Yg  Avg  
+ % obs. time:      53   71   65   54   53   61   60   57   64   64   60
+ % cal. time:       5    6    5    5    5    6    5    4    6    5    5
+ % slew time:      25   10   17   24   35   24   27   19    3   17   21
+ % idle time:      16   13   13   16    5    9    7   18   26   14   14
+ total # scans:   427  503  420  425  468  482  453  387  500  429  449
+ # scans/hour :    18   21   18   18   20   20   19   16   21   18   19
+ Avg scan (sec):  108  121  133  109   98  109  115  127  110  128  115
+ # data tracks:    16   16   16   16   16   16   16   16   16   16
+ # Mk5 tracks:     16   16   16   16   16   16   16   16   16   16
+ Total TB(M5):   1.47 1.95 1.79 1.48 1.47 1.68 1.67 1.57 1.77 1.76 1.66
+
+      # OF OBSERVATIONS BY BASELINE 
+  |  Ht   Is   Ke   Kk   Ma   Ny   On   Kv   Wn   Yg  Total   
+------------------------------------------------------------
+Ht|       71   96    0  206  128  167   68  200  168    1104      
+Is|           146  312  178  248  187  276  191  109    1718      
+Ke|                113   33   42   30  162   34  331     987      
+Kk|                     137  210  148  182  162   73    1337      
+Ma|                          332  389  116  403   38    1832      
+Ny|                               365  155  361   30    1871      
+On|                                    125  390   31    1832      
+Kv|                                         122  132    1338      
+Wn|                                               29    1892      
+Yg|                                                      941      
+
+
+ Number of  2-station scans:  481
+ Number of  3-station scans:  270
+ Number of  4-station scans:  169
+ Number of  5-station scans:  169
+ Number of  6-station scans:   89
+ Number of  7-station scans:   72
+ Number of  8-station scans:   17
+ Number of  9-station scans:    3
+ Number of 10-station scans:    0
+Total number of scans:         1270
+Total number of obs:           7426
+Total integrated obs-time:   772705
+Average obs-time:             104.1
+Histogram of observation durations
+Dur:      30    45    60    75    90   105   120   135   150   165   180   195   210   225   240   255   270   285   300 
+#Obs:     | 1154|  915| 1062|  724|  593|  623|  432|  520|  355|  201|  177|  153|  137|  118|   97|   42|   49|   74|
+ 
+Average X-band SNRs by baseline
+  |   Ht   Is   Ke   Kk   Ma   Ny   On   Kv   Wn   Yg  AVG
+-----------------------------------------------------------
+Ht|       43   40   -    57   53   47   36   61   41   50      
+Is|            58   57   55   81   51   70   61   44   61      
+Ke|                 37   49   65   50   45   51   45   47      
+Kk|                      42   63   37   42   47   28   48      
+Ma|                           85   72   48   95   45   71      
+Ny|                                86   70  101   57   81      
+On|                                     46   83   46   67      
+Kv|                                          54   33   52      
+Wn|                                               54   78      
+Yg|                                                    42      
+Average S-band SNRs by baseline
+  |   Ht   Is   Ke   Kk   Ma   Ny   On   Kv   Wn   Yg  AVG
+-----------------------------------------------------------
+Ht|       25   23   -    28   30   27   21   41   26   29      
+Is|            28   46   22   32   22   32   34   26   31      
+Ke|                 32   18   23   17   20   23   22   23      
+Kk|                      26   39   25   31   40   30   36      
+Ma|                           30   26   17   43   18   30      
+Ny|                                31   26   48   24   35      
+On|                                     18   41   18   29      
+Kv|                                          26   19   25      
+Wn|                                               26   41      
+Yg|                                                    23      
+===========================================================
+Recording mode
+  Name  Code 
+GEOSX    SX
+Recording mode for: HART15M  ISHIOKA  KATH12M  KOKEE    MATERA   NYALES20 ONSALA60 SEJONG   WETTZ13N 
+                    YARRA12M 
+  Mode      Tot.Rate    Tot.BandW   #BBC #bits  Barrel
+ Mk341:1    256 Mbits    128 MHz     14     1     NONE
+  Chan.BW  #Subpasses  Tracks(*fan)  Tot.tracks 
+  8.00 MHz      1         16(*1)        16
+  X-band spanned bw=   720.0 MHz       rms spanned bw=   280.4 MHz
+  S-band spanned bw=   140.0 MHz       rms spanned bw=    50.9 MHz
+  Effective number of 1-bit channels recorded per sub-pass
+           X        S      Total
+         10.00     6.00    16.00
+===========================================================
+Monitoring Sources
+ Source      Min     Max    Actual  #Num #Scans
+2302+232     1.00    1.50    0.05      4    2
+2232-488     1.00    1.50    0.08      6    6
+NGC1052      1.00    1.50    0.08      6    4
+1842+681     1.00    1.50    1.17     87    8
+0507+179     1.00    1.50    0.77     57   12
+0919-260     1.00    1.50    0.38     28   16
+OK290        1.00    1.50    1.19     88   25
+1145-071     1.00    1.50    0.55     41   22
+0729+259     1.00    1.50    0.00      0    0
+1252+119     1.00    1.50    0.35     26   18
+Total                        4.62    343  113
+===========================================================
+Minor Options
+Astro           Abs          3.00
+BegScan         Rel          1.00
+EndScan         Rel          1.00
+NumObs          Rel          1.00
+StatIdle        Abs          3.00
+StatWt          Abs          2.00
+===========================================================
+Major Options
+Subnet HtIsKeKkMaNyOnKvWnYg
+SkyCov             Yes
+AllBlGood          Yes
+MaxAngle       180.00
+MinAngle        15.00
+MinBetween         20
+MinSunDist       4.00
+MaxSlewTime       300
+TimeWindow          4.00
+MinSubNetSize       2
+NumSubNet           1
+Best               60
+FillIn            Yes
+FillMinSub          3
+FillMinTime       120
+FillBest           80
+Add_ps             30.0
+SNRWts            Yes
+SplitTwins         No
+===========================================================
+SNR Targets
+ Minimum SNR by baseline for multi-baseline scans
+     X-band (margin       0)     S-band (margin       0) 
+     X-band (ast_margin   0)     S-band (ast_margin   0) 
+     Ht  Is  Ke  Kk  Ma  Ny  On  Kv  Wn          Ht  Is  Ke  Kk  Ma  Ny  On  Kv  Wn  
+ Is  20                                      Is  15
+ Ke  20  20                                  Ke  15  15
+ Kk  20  20  20                              Kk  15  15  15
+ Ma  20  20  20  20                          Ma  15  15  15  15
+ Ny  20  20  20  20  20                      Ny  15  15  15  15  15
+ On  20  20  20  20  20  20                  On  15  15  15  15  15  15
+ Kv  20  20  20  20  20  20  20              Kv  15  15  15  15  15  15  15
+ Wn  20  20  20  20  20  20  20  20          Wn  15  15  15  15  15  15  15  15
+ Yg  20  20  20  20  20  20  20  20  20      Yg  15  15  15  15  15  15  15  15  15
