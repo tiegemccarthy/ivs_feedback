@@ -71,47 +71,56 @@ def corrReportDL(exp_id,vgos_tag):
     
 def main(master_schedule, db_name):
     schedule = str(master_schedule)
-    valid_experiment = validExpFinder(master_schedule)
+    valid_experiment = validExpFinder(schedule)
     existing_experiments = checkExistingData(str(db_name))
-    experiments_to_download = [x for x in valid_experiment if x not in existing_experiments]
-    ftp = FTP('cddis.gsfc.nasa.gov')
-    ftp.login()
+    if existing_experiments == None:
+        experiments_to_download = valid_experiment
+    else:
+        experiments_to_download = [x for x in valid_experiment if x not in existing_experiments]
     year = '20' + schedule[6:8]
     for exp in experiments_to_download:
         if os.path.isfile(os.getcwd()+'/analysis_reports/'+exp.lower()+'_report.txt'):
             continue
         else:
+            ftp = FTP('cddis.gsfc.nasa.gov')
+            ftp.login()
             exp = exp.lower()
-            ftp.cwd('/vlbi/ivsdata/aux/'+str(year)+ '/' + exp)
-            options = ['ivs', 'IVS', 'usno', 'USNO']
+            #ftp.cwd('/vlbi/ivsdata/aux/'+str(year)+ '/' + exp)
+            options = ['ivs', 'IVS', 'usno', 'USNO', 'NASA']
             for spelling in options:
+                #ftp = FTP('cddis.gsfc.nasa.gov')
+                #ftp.login()
                 filename_report = []
                 filename_spool = []
                 filename_report_old = []
-                ftp.retrlines('LIST '+exp+'-'+spelling+'-analysis-report*', filename_report.append)
-                ftp.retrlines('LIST '+exp+'-'+spelling+'-analysis-spoolfile*', filename_spool.append)
-                ftp.retrlines('LIST '+exp+'-analyst.txt', filename_report_old.append)
+                filename_skd = []
+                ftp.retrlines('LIST /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + '-'+spelling+'-analysis-report*', filename_report.append)
+                ftp.retrlines('LIST /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + '-'+spelling+'-analysis-spoolfile*', filename_spool.append)
+                ftp.retrlines('LIST /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + '-analyst.txt', filename_report_old.append)
+                ftp.retrlines('LIST /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + '.skd', filename_skd.append)
                 if len(filename_report) > 0:
                     local_filename_report = os.path.join(os.getcwd(), 'analysis_reports/' + exp + '_report.txt')
                     local_filename_spool = os.path.join(os.getcwd(), 'analysis_reports/' + exp + '_spoolfile.txt')
-                    local_filename_skd = os.path.join(os.getcwd(), 'skd_files/' + exp + '.skd')
                     lf1 = open(local_filename_report, "wb")
                     lf2 = open(local_filename_spool, "wb")
-                    lf3 = open(local_filename_skd, "wb")
-                    ftp.retrbinary("RETR " + filename_report[len(filename_report)-1].split()[8], lf1.write)
-                    ftp.retrbinary("RETR " + filename_spool[len(filename_report)-1].split()[8], lf2.write)
-                    ftp.retrbinary("RETR " + exp + ".skd", lf3.write)
+                    ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + filename_report[len(filename_report)-1].split()[8], lf1.write)
+                    ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + filename_spool[len(filename_report)-1].split()[8], lf2.write)
+                    if len(filename_skd) > 0:
+                        local_filename_skd = os.path.join(os.getcwd(), 'skd_files/' + exp + '.skd')
+                        lf3 = open(local_filename_skd, "wb")
+                        ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + ".skd", lf3.write)
                     lf1.close()
                     lf2.close()
                     lf3.close()
                     break
                 elif len(filename_report_old) > 0:
                     local_filename_report = os.path.join(os.getcwd(), 'analysis_reports/' + exp + '_report.txt')
-                    local_filename_skd = os.path.join(os.getcwd(), 'skd_files/' + exp + '.skd')
                     lf1 = open(local_filename_report, "wb")
-                    lf2 = open(local_filename_skd, "wb")               
-                    ftp.retrbinary("RETR " + exp + "-analyst.txt", lf1.write)
-                    ftp.retrbinary("RETR " + exp + ".skd", lf2.write)
+                    ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + "-analyst.txt", lf1.write)
+                    if len(filename_skd) > 0:
+                        local_filename_skd = os.path.join(os.getcwd(), 'skd_files/' + exp + '.skd')
+                        lf2 = open(local_filename_skd, "wb")
+                        ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + ".skd", lf2.write)
                     lf1.close()
                     lf2.close()
 

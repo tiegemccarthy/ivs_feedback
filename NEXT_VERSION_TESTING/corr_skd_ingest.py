@@ -1,11 +1,9 @@
 #!/usr/bin/python
 import re
-from datetime import datetime
 import os
 import MySQLdb as mariadb
 from astropy.io import ascii
 import numpy as np
-from numpy.random import randint
 import scipy.optimize
 
 def droppedChannels(text_section):
@@ -37,28 +35,25 @@ def manualPcal(text_section):
     # The input of this function is a text section from the correlator report (section[6])
     
 def sefdTableExtract(text_section):
-    sefd_stations = ['q', 'Q', 'a', 'K', 'I', 'N', 'X', 'j', 'W', 'i', 'B', 'b', 'd', 'H', 'T', 'E', 'u', 'V', 'Y', 'R']
     col_names = ['bl', 'X_snr', 'X_n', 'S_snr', 'S_n']
     snr_data = ascii.read(text_section, data_start=4, fast_reader=True, names=col_names)
-    valid_rows = []
-    for i in range(0, len(snr_data[:]['bl'])):
-        if any(char in snr_data[i]['bl'] for char in sefd_stations):
-            valid_rows.append(i)
-    sefd_data = snr_data[valid_rows]
-    return sefd_data
-    # This extracts the sefd ratio table for any of the 20 telescopes defined in the sefd estimation function.
-    # Make sure if you change which stations you want to be apart of the calculations, change this sefd_stations
-    # array and the one in the sefd estimator function.
+    return snr_data
+    # extracts the snr_data table from section[10] of the corr report.
     
 def antennaReference_CORR(text_section):
-    regex = '^\s{1}([^\s].*)'
+    regex = '\(.{4}\)'
     antennas_corr_report = re.findall(regex,text_section,re.MULTILINE)
     antennas_corr_reference = []
     for line in antennas_corr_report:
-        line = line.split()
-        ref = [line[0], line[1][1:3], line[1][4]]
-        antennas_corr_reference.append(ref)
+        if '/' in line:
+            ref = [line[1:3],line[4]]
+            antennas_corr_reference.append(ref)
+        elif '-' in line: # this is to handle some funky corr report styles.
+            ref = [line[3:5], line[1]]
+            antennas_corr_reference.append(ref)
     return antennas_corr_reference
+    # This function takes the section[4] of the corr report and gives the 2 character
+    # station code plus the single character corr code.
     
 def antennaReference_SKD(text_section):
     regex = "^A\s\s.*"
@@ -89,14 +84,15 @@ def baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD):
     bl_sefd_s = []
     bl_const_x = []
     bl_const_s = []
+    sefd_stations = ['Ke','Yg','Hb','Ho', 'Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
     for i1 in range(0, len(SNR_DATA)):
         bl = SNR_DATA[i1][0]
         sefd_x = []
         sefd_s = []
         for i2 in range(0, len(antennas_corr_reference)):
-            if antennas_corr_reference[i2][2] in bl:
+            if antennas_corr_reference[i2][0] in sefd_stations and antennas_corr_reference[i2][1] in bl:
                 for j in range(0, len(stations_SEFD)):
-                    if antennas_corr_reference[i2][1] in stations_SEFD[j][0]:
+                    if antennas_corr_reference[i2][0] in stations_SEFD[j][0]:
                         sefd_x.append(stations_SEFD[j][1])
                         sefd_s.append(stations_SEFD[j][2])
         bl_sefd_x.append(sefd_x)
@@ -121,39 +117,77 @@ def baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD):
     # This nightmare spaghetti calculates the constant for each baseline combination in the SEFD equation
     # This constant is just (SEFD_pred_1 * SEFD_pred_2)/r_snr_12
     # also outputs the weightings for the SEFD estimation (sqrt(n)).
+    # It is important that the sefd_station list is the same as the list of stations in the
+    # sefd estimation system!
     
     
-def sefd_bl_equations(x, SNR_DATA):
+def sefd_bl_equations(x, SNR_DATA, antennas_corr_reference):
     # need to set the function up for many of the potential telescopes in the IVS experiments
     # The extra variables have no effect if not in the schedule and will instead just have the initial guess value returned.
-    q, Q, a, K, I, N, X, j, W, i, B, b, d, H, T, E, u, V, Y, R = x
-    stations = [['q', q],['Q', Q], ['a', a], ['K', K], ['I', I], ['N', N],['X', X], ['j', j], ['W', W], ['i', i], ['B', B], ['b',b], ['d', d], ['H', H], ['T', T], ['E', E], ['u',u], ['V', V], ['Y', Y],['R', R]]    
+    x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30 = x
+    #stations = [['Hb', x1],['Ho', x2], ['Ke', x3], ['Yg', x4], ['Ht', x5], ['Is', x6],['Kk', x7], ['Ma', x8], ['Ny', x9], ['On', x10], ['Kv', x11] , ['Wn', x12]]    
+    station_str = ['Ke','Yg', 'Hb', 'Ho', 'Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
+    station_var = [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
     output = []
     for i in range(0, len(SNR_DATA)):
         ants = list(SNR_DATA[i][0])
         equations = []
-        for j in range(0, len(stations)):
-            if stations[j][0] in ants:
-                equations.append(stations[j][1])
+        for j in range(0, len(antennas_corr_reference)):
+            if antennas_corr_reference[j][1] in ants:
+                equations.append(station_var[station_str.index(antennas_corr_reference[j][0])])
         multi = equations[0]*equations[1]
         output.append(multi)
     output_array = np.asarray(output)
     return output_array
 
-def system(x,w,SNR_DATA,b):
-    return w*(sefd_bl_equations(x, SNR_DATA)-b)
+def system(x,w,SNR_DATA,antennas_corr_reference,b):
+    return w*(sefd_bl_equations(x, SNR_DATA, antennas_corr_reference)-b)
 
-def main():
-    with open(os.getcwd()+'/19JAN02XA/History/19JAN02XA_V000_kMk4.hist') as file:
+
+def main(exp_id, db_name):
+    with open(os.getcwd()+'/corr_files/'+ str(exp_id) + '.corr') as file:
         contents = file.read()
-        section = contents.split('+')
-    with open(os.getcwd()+'/skd_files/r1875.skd') as file:
-        skd_contents = file.read()
+        corr_section = contents.split('+')
+    station_id = ["Ke", "Yg", "Hb", "Ho"]
+    # Extract manual pcal and dropped channels for all telescopes first
+    dropped_channels = droppedChannels(corr_section[5])
+    manual_pcal = manualPcal(corr_section[6])
+    # Now to extract what we need to calculate the SEFDs
+    if os.path.isfile(os.getcwd()+'/skd_files/' + str(exp_id) + '.skd'):
+        with open(os.getcwd()+'/skd_files/' + str(exp_id) + '.skd') as file:
+            skd_contents = file.read()
+        snr_data = sefdTableExtract(corr_section[10])
+        antennas_corr_reference = antennaReference_CORR(corr_section[4])
+        antenna_reference = antennaReference_SKD(skd_contents)
+        stations_SEFD = predictedSEFDextract(skd_contents, antenna_reference)
+        bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(snr_data, antennas_corr_reference, stations_SEFD)
+        # Set the guess values, number of elements must be equal to stations setup in sefd_bl_equations function
+        x0 = 999*np.ones(30)
+        # Finally, estimate the SEFDs
+        estimated_sefd_x = scipy.optimize.leastsq(system, x0, args=(weights_x,snr_data,antennas_corr_reference,bl_const_x))[0]
+        estimated_sefd_s = scipy.optimize.leastsq(system, x0, args=(weights_s,snr_data,antennas_corr_reference,bl_const_s))[0]
+        # should maybe put a condition in here where if length of bl_const lists are less than 6 (less than 4 stations) give warning that SEFD cant be calculated.
+        for i in range(0, len(station_id)):
+            if estimated_sefd_x[i] != 999:
+                sql_station = "UPDATE {} (estSEFD_X, estSEFD_S, Manual_Pcal, Dropped_Chans) VALUES (%s, %s, %s, %s) WHERE ExpID={};".format(station_id[i],str(exp_id))
+                data = [estimated_sefd_x[i], estimated_sefd_s[i], manual_pcal[i], dropped_channels[i]]
+                conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
+                cursor = conn.cursor()
+                cursor.execute(sql_station, data)
+                conn.commit()
+        conn.close()
+    else:
+        for i in range(0, len(station_id)):
+            sql_station = "UPDATE {} (Manual_Pcal, Dropped_Chans) VALUES (%s, %s) WHERE ExpID={};".format(station_id[i],str(exp_id))
+            data = [manual_pcal[i], dropped_channels[i]]
+            conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
+            cursor = conn.cursor()
+            cursor.execute(sql_station, data)
+            conn.commit()
+        conn.close()
+
+    
 
 if __name__ == '__main__':
     # analysis_downloader.py executed as a script
     main(sys.argv[1], sys.argv[2])
-
-x0 = 999*np.ones(20)
-x = scipy.optimize.leastsq(system, x0, args=(weights_s,snr_data,bl_const_s))[0]
-print(x)
