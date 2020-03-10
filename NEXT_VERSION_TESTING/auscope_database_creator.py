@@ -12,6 +12,8 @@ import sys
    
 def main(master_schedule, db_name):
     # CREATE DATABASE IF REQUIRED
+    master_schedule = str(master_schedule)
+    db_name = str(db_name) 
     station_id = ['Ke', 'Yg', 'Hb', 'Ho']
     conn = mariadb.connect(user='auscope', passwd='password')
     cursor = conn.cursor()
@@ -36,7 +38,7 @@ def main(master_schedule, db_name):
         exp = exp.lower()
         if os.path.isfile(os.getcwd()+'/analysis_reports/'+ exp +'_report.txt'):
             auscope_file_scraper.main(exp, db_name)
-            with '/analysis_reports/'+ exp +'_report.txt' as file:
+            with open('analysis_reports/'+ exp +'_report.txt') as file:
                 meta_data = auscope_file_scraper.metaData(file.read())
             vgosDB = meta_data[3]
             analysis_downloader.corrReportDL(exp, vgosDB)

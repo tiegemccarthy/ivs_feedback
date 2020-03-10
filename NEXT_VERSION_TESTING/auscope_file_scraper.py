@@ -84,6 +84,7 @@ def delayRMS(text_section): # This function pulls the w.rms delay from the spool
     return station_delays 
 
 def main(exp_code, db_name):
+    print("Beginning analysis report and spoolfile ingest for experiment " + exp_code + ".")
     file_report = 'analysis_reports/' + str(exp_code) + '_report.txt'
     file_spool = 'analysis_reports/' + str(exp_code) + '_spoolfile.txt'
     sql_command = []
@@ -106,7 +107,7 @@ def main(exp_code, db_name):
                 continue
             else:
                 sql_station = "INSERT IGNORE INTO {} (ExpID, Performance, Date, Pos_X, Pos_Y, Pos_Z, Pos_U, Pos_E, Pos_N, W_RMS_del, Problem, Problem_String, Analyser, vgosDB_tag) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);".format(station_id[i])
-                data = [meta[0], performance[i], meta[2], position[i][0], position[i][1], position[i][2], position[i][3], position[i][4], position[i][5], delays[i], problems[0][i], problems[1][i], meta[1], meta[3]]
+                data = [meta[0].lower(), performance[i], meta[2], position[i][0], position[i][1], position[i][2], position[i][3], position[i][4], position[i][5], delays[i], problems[0][i], problems[1][i], meta[1], meta[3]]
                 conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
                 cursor = conn.cursor()
                 cursor.execute(sql_station, data)

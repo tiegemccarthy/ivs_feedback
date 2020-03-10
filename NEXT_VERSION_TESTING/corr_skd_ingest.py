@@ -84,33 +84,37 @@ def baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD):
     bl_sefd_s = []
     bl_const_x = []
     bl_const_s = []
-    sefd_stations = ['Ke','Yg','Hb','Ho', 'Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
+    weights_x = []
+    weights_s = []
+    sefd_stations = ['Ke','Yg', 'Hb', 'Ho', 'Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
     for i1 in range(0, len(SNR_DATA)):
-        bl = SNR_DATA[i1][0]
+        bl = list(SNR_DATA[i1][0])
         sefd_x = []
         sefd_s = []
         for i2 in range(0, len(antennas_corr_reference)):
             if antennas_corr_reference[i2][0] in sefd_stations and antennas_corr_reference[i2][1] in bl:
                 for j in range(0, len(stations_SEFD)):
-                    if antennas_corr_reference[i2][0] in stations_SEFD[j][0]:
+                    if antennas_corr_reference[i2][0] == stations_SEFD[j][0]: # probably a more elegant way to do this with list.index()
                         sefd_x.append(stations_SEFD[j][1])
                         sefd_s.append(stations_SEFD[j][2])
-        bl_sefd_x.append(sefd_x)
-        bl_sefd_s.append(sefd_s)
-        if SNR_DATA[i1][1] == 0:
-            const_x = 0#float('NaN')
-        else: 
-            const_x = (int(sefd_x[0])*int(sefd_x[1]))/snr_data[i1][1]  
-        if SNR_DATA[i1][3] == 0:
-            const_s = 0#float('NaN')
-        else:
-            const_s = (int(sefd_s[0])*int(sefd_s[1]))/snr_data[i1][3] 
-        bl_const_x.append(const_x)
-        bl_const_s.append(const_s)
-        
-    weights_x = np.sqrt(SNR_DATA[2][:])
+        if len(sefd_x) > 1: # this checks that 2 valid telescopes are in the bl
+            bl_sefd_x.append(sefd_x)
+            bl_sefd_s.append(sefd_s)
+            if SNR_DATA[i1][1] == 0:
+                const_x = 0#float('NaN')
+            else: 
+                const_x = (int(sefd_x[0])*int(sefd_x[1]))/SNR_DATA[i1][1]  
+            if SNR_DATA[i1][3] == 0:
+                const_s = 0#float('NaN')
+            else:
+                const_s = (int(sefd_s[0])*int(sefd_s[1]))/SNR_DATA[i1][3] 
+            bl_const_x.append(const_x)
+            bl_const_s.append(const_s)
+            w_x = np.sqrt(SNR_DATA[i1][2])
+            w_s = np.sqrt(SNR_DATA[i1][4])
+            weights_x.append(w_x)
+            weights_s.append(w_s)
     weights_x = np.asarray(weights_x)
-    weights_s = np.sqrt(SNR_DATA[4][:])
     weights_s = np.asarray(weights_s)    
     return bl_const_x, bl_const_s, weights_x, weights_s
     
@@ -120,23 +124,36 @@ def baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD):
     # It is important that the sefd_station list is the same as the list of stations in the
     # sefd estimation system!
     
+def tableLengthHacker(SNR_DATA, antennas_corr_reference, stations_SEFD):
+    # This function is purely to deal with the fact that my SEFD estimation system can't handle cases 
+    # where there are less equations generated than the number of defined antennas (30). It simply
+    # stacks the snr_data table so the generated equations are 30 or more. This does not do anything to the
+    # values because every equation is just occuring N times, so the increase in weighting is equal. It simply
+    # bypasses the shortcomings of doing this in python.
+    bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD)
+    while len(bl_const_x) < 30:
+        SNR_DATA = vstack([SNR_DATA,SNR_DATA])
+        bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD)
+    return bl_const_x, bl_const_s, weights_x, weights_s, SNR_DATA
+    
     
 def sefd_bl_equations(x, SNR_DATA, antennas_corr_reference):
     # need to set the function up for many of the potential telescopes in the IVS experiments
     # The extra variables have no effect if not in the schedule and will instead just have the initial guess value returned.
     x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30 = x
     #stations = [['Hb', x1],['Ho', x2], ['Ke', x3], ['Yg', x4], ['Ht', x5], ['Is', x6],['Kk', x7], ['Ma', x8], ['Ny', x9], ['On', x10], ['Kv', x11] , ['Wn', x12]]    
-    station_str = ['Ke','Yg', 'Hb', 'Ho', 'Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
+    station_str = ['Ke','Yg', 'Hb', 'Ho','Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
     station_var = [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
     output = []
     for i in range(0, len(SNR_DATA)):
         ants = list(SNR_DATA[i][0])
         equations = []
         for j in range(0, len(antennas_corr_reference)):
-            if antennas_corr_reference[j][1] in ants:
+            if antennas_corr_reference[j][1] in ants and antennas_corr_reference[j][0] in station_str:
                 equations.append(station_var[station_str.index(antennas_corr_reference[j][0])])
-        multi = equations[0]*equations[1]
-        output.append(multi)
+        if len(equations) > 1:  
+            multi = equations[0]*equations[1]
+            output.append(multi)
     output_array = np.asarray(output)
     return output_array
 
@@ -145,6 +162,7 @@ def system(x,w,SNR_DATA,antennas_corr_reference,b):
 
 
 def main(exp_id, db_name):
+    print("Beginning corr and skd file ingest for experiment " + exp_id + ".")
     with open(os.getcwd()+'/corr_files/'+ str(exp_id) + '.corr') as file:
         contents = file.read()
         corr_section = contents.split('+')
@@ -161,25 +179,51 @@ def main(exp_id, db_name):
         antenna_reference = antennaReference_SKD(skd_contents)
         stations_SEFD = predictedSEFDextract(skd_contents, antenna_reference)
         bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(snr_data, antennas_corr_reference, stations_SEFD)
-        # Set the guess values, number of elements must be equal to stations setup in sefd_bl_equations function
-        x0 = 999*np.ones(30)
-        # Finally, estimate the SEFDs
-        estimated_sefd_x = scipy.optimize.leastsq(system, x0, args=(weights_x,snr_data,antennas_corr_reference,bl_const_x))[0]
-        estimated_sefd_s = scipy.optimize.leastsq(system, x0, args=(weights_s,snr_data,antennas_corr_reference,bl_const_s))[0]
-        # should maybe put a condition in here where if length of bl_const lists are less than 6 (less than 4 stations) give warning that SEFD cant be calculated.
+        if len(bl_const_x) < 6:
+            estimated_sefd_x = ['NULL','NULL','NULL', 'NULL']
+            estimated_sefd_s = ['NULL','NULL','NULL', 'NULL']
+            print("Not enough stations to calculate SEFD for experiment " + exp_id + ".")
+        else:
+            print("Calculating SEFD values for experiment " + exp_id + ".")
+            # Set the guess values, number of elements must be equal to stations setup in sefd_bl_equations function
+            x0 = 999*np.ones(30)
+            # Need to make sure bl_const, weight list sizes are >= 30 and same for the snr table. Hacky way to deal with the limitations of solving this variable length system of non-linear equations in python.
+            bl_const_x, bl_const_s, weights_x, weights_s, snr_data_stacked = tableLengthHacker(snr_data, antennas_corr_reference, stations_SEFD)
+            # Finally, estimate the SEFDs
+            estimated_sefd_x = scipy.optimize.leastsq(system, x0, args=(weights_x,snr_data_stacked,antennas_corr_reference,bl_const_x))[0]
+            estimated_sefd_s = scipy.optimize.leastsq(system, x0, args=(weights_s,snr_data_stacked,antennas_corr_reference,bl_const_s))[0]
         for i in range(0, len(station_id)):
-            if estimated_sefd_x[i] != 999:
-                sql_station = "UPDATE {} (estSEFD_X, estSEFD_S, Manual_Pcal, Dropped_Chans) VALUES (%s, %s, %s, %s) WHERE ExpID={};".format(station_id[i],str(exp_id))
-                data = [estimated_sefd_x[i], estimated_sefd_s[i], manual_pcal[i], dropped_channels[i]]
+            if estimated_sefd_x[i] != 999: # If SEFD is equal to the guess value, then station was not a part of the experiment and data should not be updated in the table.
+                sql_station = """
+                    UPDATE {}
+                    SET estSEFD_X=%s, estSEFD_S=%s, Manual_Pcal=%s, Dropped_Chans=%s
+                    WHERE ExpID = %s
+                """.format(station_id[0])
+                data = [round(estimated_sefd_x[i],2), round(estimated_sefd_s[i],2), manual_pcal[i], dropped_channels[i], exp_id]
+                conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
+                cursor = conn.cursor()
+                cursor.execute(sql_station, data)
+                conn.commit()
+            elif estimated_sefd_x[i] == 'NULL': # Kind of shitty ad-hoc addition to catch cases where total number of stations are less than 4. Could probably be merged with the no SKD case to make code more readable.
+                sql_station = """
+                    UPDATE {} 
+                    SET Manual_Pcal=%s, Dropped_Chans=%s 
+                    WHERE ExpID=%s;"
+                """.format(station_id[i])
+                data = [manual_pcal[i], dropped_channels[i], exp_id]
                 conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
                 cursor = conn.cursor()
                 cursor.execute(sql_station, data)
                 conn.commit()
         conn.close()
-    else:
+    else: ### this sql command is for if no SKD file is present and hence no calculation is possible.
         for i in range(0, len(station_id)):
-            sql_station = "UPDATE {} (Manual_Pcal, Dropped_Chans) VALUES (%s, %s) WHERE ExpID={};".format(station_id[i],str(exp_id))
-            data = [manual_pcal[i], dropped_channels[i]]
+            sql_station = """
+                UPDATE {} 
+                SET Manual_Pcal=%s, Dropped_Chans=%s 
+                WHERE ExpID=%s;"
+            """.format(station_id[i])
+            data = [manual_pcal[i], dropped_channels[i], exp_id]
             conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
             cursor = conn.cursor()
             cursor.execute(sql_station, data)

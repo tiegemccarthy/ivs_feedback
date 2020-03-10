@@ -5,6 +5,7 @@ import re
 import os
 import MySQLdb as mariadb
 import sys
+import tarfile
 
 #
 #
@@ -48,6 +49,7 @@ def corrReportDL(exp_id,vgos_tag):
     tag = str(vgos_tag.rstrip())
     exp_id = str(exp_id)
     if os.path.isfile(os.getcwd()+"/corr_files/"+ exp_id + '.corr'):
+        print("Corr report already exists for experiment " + exp_id + ", skipping re-download.")
         return
     else:
         local_filename = os.path.join(os.getcwd(), tag + ".tgz")
@@ -66,7 +68,8 @@ def corrReportDL(exp_id,vgos_tag):
             tar.extract(member)
             tar.close()
         os.remove(tag + ".tgz")
-        return
+        print("Corr report download complete for experiment " + exp_id + ".")
+        return 
 
     
 def main(master_schedule, db_name):
@@ -80,6 +83,7 @@ def main(master_schedule, db_name):
     year = '20' + schedule[6:8]
     for exp in experiments_to_download:
         if os.path.isfile(os.getcwd()+'/analysis_reports/'+exp.lower()+'_report.txt'):
+            print("Analysis report already exists for " + exp.lower() + ", skipping file downloads.")
             continue
         else:
             ftp = FTP('cddis.gsfc.nasa.gov')
@@ -105,25 +109,28 @@ def main(master_schedule, db_name):
                     lf2 = open(local_filename_spool, "wb")
                     ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + filename_report[len(filename_report)-1].split()[8], lf1.write)
                     ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + filename_spool[len(filename_report)-1].split()[8], lf2.write)
+                    lf1.close()
+                    lf2.close()
                     if len(filename_skd) > 0:
                         local_filename_skd = os.path.join(os.getcwd(), 'skd_files/' + exp + '.skd')
                         lf3 = open(local_filename_skd, "wb")
                         ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + ".skd", lf3.write)
-                    lf1.close()
-                    lf2.close()
-                    lf3.close()
+                        lf3.close()
+                    print("File downloads complete for experiment " + exp + ".")
                     break
                 elif len(filename_report_old) > 0:
                     local_filename_report = os.path.join(os.getcwd(), 'analysis_reports/' + exp + '_report.txt')
                     lf1 = open(local_filename_report, "wb")
                     ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + "-analyst.txt", lf1.write)
+                    lf1.close()
                     if len(filename_skd) > 0:
                         local_filename_skd = os.path.join(os.getcwd(), 'skd_files/' + exp + '.skd')
                         lf2 = open(local_filename_skd, "wb")
                         ftp.retrbinary('RETR /vlbi/ivsdata/aux/'+str(year)+ '/' + exp + '/' + exp + ".skd", lf2.write)
-                    lf1.close()
-                    lf2.close()
-
+                        lf2.close()
+                    print("File downloads complete for experiment " + exp + ".")
+                    break
+            print("Could not find relevant files for experiment " + exp + ".")
 
 if __name__ == '__main__':
     # auscope_file_scraper.py executed as a script
