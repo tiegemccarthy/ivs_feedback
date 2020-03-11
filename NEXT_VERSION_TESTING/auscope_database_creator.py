@@ -28,8 +28,8 @@ def main(master_schedule, db_name):
         cursor.execute(query)
         conn.commit()
     conn.close()
-    # DOWNLOAD ANY FILES THAT ARE IN THE MASTER SCHED, BUT NOT IN DATABASE YET
-    analysis_downloader.main(master_schedule, db_name)
+    # DOWNLOAD ANY SKD/ANALYSIS/SPOOL FILES THAT ARE IN THE MASTER SCHED, BUT NOT IN DATABASE YET. 
+    analysis_downloader.main(master_schedule, db_name) # comment this line out for troubleshooting downstream problems, otherwise this tries to redownload all the experiments with no files available.
     # SCRAPE FILES THAT ARENT IN THE DATABASE
     valid_experiments = analysis_downloader.validExpFinder(master_schedule)
     existing_experiments = analysis_downloader.checkExistingData(str(db_name))

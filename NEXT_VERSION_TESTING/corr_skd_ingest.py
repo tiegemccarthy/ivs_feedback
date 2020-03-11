@@ -5,6 +5,8 @@ import MySQLdb as mariadb
 from astropy.io import ascii
 import numpy as np
 import scipy.optimize
+from astropy.table import vstack
+import sys
 
 def droppedChannels(text_section):
     station_id = [['KATH12M', 'YARRA12M', 'HOBART12', 'HOBART26'], ['Ke', 'Yg', 'Hb', 'Ho'], ['a', 'i', 'd', 'H']]
@@ -34,11 +36,15 @@ def manualPcal(text_section):
     # this determines whether manual pcal happened for any of our telescopes.
     # The input of this function is a text section from the correlator report (section[6])
     
-def sefdTableExtract(text_section):
-    col_names = ['bl', 'X_snr', 'X_n', 'S_snr', 'S_n']
-    snr_data = ascii.read(text_section, data_start=4, fast_reader=True, names=col_names)
+def sefdTableExtract(text_section):     # extracts the snr_data table from section[10] of the corr report.
+    if len(text_section) > 20:
+        col_names = ['bl', 'X_snr', 'X_n', 'S_snr', 'S_n']
+        snr_data = ascii.read(text_section, data_start=4, fast_reader=True, names=col_names)
+    else: 
+        snr_data = []
+        # if snr table isnt included for some reason, this stops the script from crashing.
+        # Instead SEFD estimation will be skipped.
     return snr_data
-    # extracts the snr_data table from section[10] of the corr report.
     
 def antennaReference_CORR(text_section):
     regex = '\(.{4}\)'
@@ -66,7 +72,7 @@ def antennaReference_SKD(text_section):
     return antenna_reference
 
 def predictedSEFDextract(text_section, antenna_reference):
-    regex_sefd = "^T\s{3}.*"
+    regex_sefd = "^T\s{2}.*"
     sefd_skd = re.findall(regex_sefd,text_section,re.MULTILINE)
     stations_SEFD =[]
     for line in sefd_skd:
@@ -86,7 +92,8 @@ def baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD):
     bl_const_s = []
     weights_x = []
     weights_s = []
-    sefd_stations = ['Ke','Yg', 'Hb', 'Ho', 'Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
+    bl_list = []
+    sefd_stations = ['Ke','Yg', 'Hb', 'Ho','Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
     for i1 in range(0, len(SNR_DATA)):
         bl = list(SNR_DATA[i1][0])
         sefd_x = []
@@ -114,9 +121,10 @@ def baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD):
             w_s = np.sqrt(SNR_DATA[i1][4])
             weights_x.append(w_x)
             weights_s.append(w_s)
+            bl_list.append(SNR_DATA[i1][0])
     weights_x = np.asarray(weights_x)
     weights_s = np.asarray(weights_s)    
-    return bl_const_x, bl_const_s, weights_x, weights_s
+    return bl_const_x, bl_const_s, weights_x, weights_s, bl_list
     
     # This nightmare spaghetti calculates the constant for each baseline combination in the SEFD equation
     # This constant is just (SEFD_pred_1 * SEFD_pred_2)/r_snr_12
@@ -130,14 +138,15 @@ def tableLengthHacker(SNR_DATA, antennas_corr_reference, stations_SEFD):
     # stacks the snr_data table so the generated equations are 30 or more. This does not do anything to the
     # values because every equation is just occuring N times, so the increase in weighting is equal. It simply
     # bypasses the shortcomings of doing this in python.
-    bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD)
-    while len(bl_const_x) < 30:
-        SNR_DATA = vstack([SNR_DATA,SNR_DATA])
-        bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD)
-    return bl_const_x, bl_const_s, weights_x, weights_s, SNR_DATA
+    bl_const_x, bl_const_s, weights_x, weights_s, bl_list = baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD)
+    if len(SNR_DATA) > 1:
+        while len(bl_const_x) < 30:
+            SNR_DATA = vstack([SNR_DATA,SNR_DATA])
+            bl_const_x, bl_const_s, weights_x, weights_s, bl_list = baselineConstantsWeights(SNR_DATA, antennas_corr_reference, stations_SEFD)
+    return bl_const_x, bl_const_s, weights_x, weights_s, bl_list, SNR_DATA
     
     
-def sefd_bl_equations(x, SNR_DATA, antennas_corr_reference):
+def sefd_bl_equations(x, bl_list, antennas_corr_reference):
     # need to set the function up for many of the potential telescopes in the IVS experiments
     # The extra variables have no effect if not in the schedule and will instead just have the initial guess value returned.
     x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30 = x
@@ -145,8 +154,8 @@ def sefd_bl_equations(x, SNR_DATA, antennas_corr_reference):
     station_str = ['Ke','Yg', 'Hb', 'Ho','Ht', 'Is', 'Kk', 'Ma', 'Ny', 'On', 'Kv', 'Wn', 'Hh', 'Ft', 'Ts', 'Wm', 'Ww', 'Wa', 'Wz', 'Bd', 'Ag', 'Ys', 'Ur', 'Sy', 'Oh', 'Tc', 'Ai', 'Cc','Vm','Vs']
     station_var = [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
     output = []
-    for i in range(0, len(SNR_DATA)):
-        ants = list(SNR_DATA[i][0])
+    for i in range(0, len(bl_list)):
+        ants = list(bl_list[i])
         equations = []
         for j in range(0, len(antennas_corr_reference)):
             if antennas_corr_reference[j][1] in ants and antennas_corr_reference[j][0] in station_str:
@@ -157,78 +166,84 @@ def sefd_bl_equations(x, SNR_DATA, antennas_corr_reference):
     output_array = np.asarray(output)
     return output_array
 
-def system(x,w,SNR_DATA,antennas_corr_reference,b):
-    return w*(sefd_bl_equations(x, SNR_DATA, antennas_corr_reference)-b)
+def system(x,w,bl_list,antennas_corr_reference,b):
+    return w*(sefd_bl_equations(x, bl_list, antennas_corr_reference)-b)
 
 
 def main(exp_id, db_name):
-    print("Beginning corr and skd file ingest for experiment " + exp_id + ".")
-    with open(os.getcwd()+'/corr_files/'+ str(exp_id) + '.corr') as file:
-        contents = file.read()
-        corr_section = contents.split('+')
-    station_id = ["Ke", "Yg", "Hb", "Ho"]
-    # Extract manual pcal and dropped channels for all telescopes first
-    dropped_channels = droppedChannels(corr_section[5])
-    manual_pcal = manualPcal(corr_section[6])
-    # Now to extract what we need to calculate the SEFDs
-    if os.path.isfile(os.getcwd()+'/skd_files/' + str(exp_id) + '.skd'):
-        with open(os.getcwd()+'/skd_files/' + str(exp_id) + '.skd') as file:
-            skd_contents = file.read()
-        snr_data = sefdTableExtract(corr_section[10])
-        antennas_corr_reference = antennaReference_CORR(corr_section[4])
-        antenna_reference = antennaReference_SKD(skd_contents)
-        stations_SEFD = predictedSEFDextract(skd_contents, antenna_reference)
-        bl_const_x, bl_const_s, weights_x, weights_s = baselineConstantsWeights(snr_data, antennas_corr_reference, stations_SEFD)
-        if len(bl_const_x) < 6:
-            estimated_sefd_x = ['NULL','NULL','NULL', 'NULL']
-            estimated_sefd_s = ['NULL','NULL','NULL', 'NULL']
-            print("Not enough stations to calculate SEFD for experiment " + exp_id + ".")
-        else:
-            print("Calculating SEFD values for experiment " + exp_id + ".")
-            # Set the guess values, number of elements must be equal to stations setup in sefd_bl_equations function
-            x0 = 999*np.ones(30)
-            # Need to make sure bl_const, weight list sizes are >= 30 and same for the snr table. Hacky way to deal with the limitations of solving this variable length system of non-linear equations in python.
-            bl_const_x, bl_const_s, weights_x, weights_s, snr_data_stacked = tableLengthHacker(snr_data, antennas_corr_reference, stations_SEFD)
-            # Finally, estimate the SEFDs
-            estimated_sefd_x = scipy.optimize.leastsq(system, x0, args=(weights_x,snr_data_stacked,antennas_corr_reference,bl_const_x))[0]
-            estimated_sefd_s = scipy.optimize.leastsq(system, x0, args=(weights_s,snr_data_stacked,antennas_corr_reference,bl_const_s))[0]
-        for i in range(0, len(station_id)):
-            if estimated_sefd_x[i] != 999: # If SEFD is equal to the guess value, then station was not a part of the experiment and data should not be updated in the table.
-                sql_station = """
-                    UPDATE {}
-                    SET estSEFD_X=%s, estSEFD_S=%s, Manual_Pcal=%s, Dropped_Chans=%s
-                    WHERE ExpID = %s
-                """.format(station_id[0])
-                data = [round(estimated_sefd_x[i],2), round(estimated_sefd_s[i],2), manual_pcal[i], dropped_channels[i], exp_id]
-                conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
-                cursor = conn.cursor()
-                cursor.execute(sql_station, data)
-                conn.commit()
-            elif estimated_sefd_x[i] == 'NULL': # Kind of shitty ad-hoc addition to catch cases where total number of stations are less than 4. Could probably be merged with the no SKD case to make code more readable.
+    if os.path.isfile(os.getcwd()+"/corr_files/"+ exp_id + '.corr'):
+        print("Beginning corr and skd file ingest for experiment " + exp_id + ".")
+        with open(os.getcwd()+'/corr_files/'+ str(exp_id) + '.corr') as file:
+            contents = file.read()
+            corr_section = contents.split('\n+')
+            if len(corr_section) < 13: # another ad-hoc addition for if corr-reports have a space before ever line in them (e.g. aov032)
+                corr_section = contents.split('\n +')
+        station_id = ["Ke", "Yg", "Hb", "Ho"]
+        # Extract manual pcal and dropped channels for all telescopes first
+        dropped_channels = droppedChannels(corr_section[5])
+        manual_pcal = manualPcal(corr_section[6])
+        # Now to extract what we need to calculate the SEFDs
+        if os.path.isfile(os.getcwd()+'/skd_files/' + str(exp_id) + '.skd'):
+            with open(os.getcwd()+'/skd_files/' + str(exp_id) + '.skd') as file:
+                skd_contents = file.read()
+            snr_data = sefdTableExtract(corr_section[10])
+            antennas_corr_reference = antennaReference_CORR(corr_section[4])
+            antenna_reference = antennaReference_SKD(skd_contents)
+            stations_SEFD = predictedSEFDextract(skd_contents, antenna_reference)
+            bl_const_x, bl_const_s, weights_x, weights_s, bl_list = baselineConstantsWeights(snr_data, antennas_corr_reference, stations_SEFD)
+            if len(bl_const_x) < 6:
+                estimated_sefd_x = ['NULL','NULL','NULL', 'NULL']
+                estimated_sefd_s = ['NULL','NULL','NULL', 'NULL']
+                print("Not enough stations to calculate SEFD for experiment " + exp_id + ".")
+            else:
+                print("Calculating SEFD values for experiment " + exp_id + ".")
+                # Set the guess values, number of elements must be equal to stations setup in sefd_bl_equations function
+                x0 = 999*np.ones(30)
+                # Need to make sure bl_const, weight list sizes are >= 30 and same for the snr table. Hacky way to deal with the limitations of solving this variable length system of non-linear equations in python.
+                bl_const_x, bl_const_s, weights_x, weights_s, bl_list, snr_data_stacked = tableLengthHacker(snr_data, antennas_corr_reference, stations_SEFD)
+                # Finally, estimate the SEFDs
+                estimated_sefd_x = scipy.optimize.leastsq(system, x0, args=(weights_x,bl_list,antennas_corr_reference,bl_const_x))[0]
+                estimated_sefd_s = scipy.optimize.leastsq(system, x0, args=(weights_s,bl_list,antennas_corr_reference,bl_const_s))[0]
+            for i in range(0, len(station_id)):
+                if estimated_sefd_x[i] == 'NULL': #Kind of shitty ad-hoc addition to catch cases where total number of stations are less than 4. Could probably be merged with the no SKD case to make code more readable.
+                    sql_station = """
+                        UPDATE {} 
+                        SET Manual_Pcal=%s, Dropped_Chans=%s 
+                        WHERE ExpID=%s
+                    """.format(station_id[i])
+                    data = [manual_pcal[i], dropped_channels[i], str(exp_id)]
+                    conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
+                    cursor = conn.cursor()
+                    cursor.execute(sql_station, data)
+                    conn.commit()
+                elif estimated_sefd_x[i] != 999: # If SEFD is equal to the guess value, then station was not a part of the experiment and data should not be updated in the table.
+                    sql_station = """
+                        UPDATE {}
+                        SET estSEFD_X=%s, estSEFD_S=%s, Manual_Pcal=%s, Dropped_Chans=%s
+                        WHERE ExpID=%s
+                    """.format(station_id[i])
+                    data = [round(estimated_sefd_x[i],2), round(estimated_sefd_s[i],2), manual_pcal[i], dropped_channels[i], str(exp_id)]
+                    conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
+                    cursor = conn.cursor()
+                    cursor.execute(sql_station, data)
+                    conn.commit()
+                    #conn.close()
+
+            conn.close()
+        else: ### this sql command is for if no SKD file is present and hence no calculation is possible.
+            for j in range(0, len(station_id)):
                 sql_station = """
                     UPDATE {} 
                     SET Manual_Pcal=%s, Dropped_Chans=%s 
-                    WHERE ExpID=%s;"
-                """.format(station_id[i])
-                data = [manual_pcal[i], dropped_channels[i], exp_id]
+                    WHERE ExpID=%s
+                """.format(station_id[j])
+                data = [manual_pcal[j], dropped_channels[j], str(exp_id)]
                 conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
                 cursor = conn.cursor()
                 cursor.execute(sql_station, data)
                 conn.commit()
-        conn.close()
-    else: ### this sql command is for if no SKD file is present and hence no calculation is possible.
-        for i in range(0, len(station_id)):
-            sql_station = """
-                UPDATE {} 
-                SET Manual_Pcal=%s, Dropped_Chans=%s 
-                WHERE ExpID=%s;"
-            """.format(station_id[i])
-            data = [manual_pcal[i], dropped_channels[i], exp_id]
-            conn = mariadb.connect(user='auscope', passwd='password', db=str(db_name))
-            cursor = conn.cursor()
-            cursor.execute(sql_station, data)
-            conn.commit()
-        conn.close()
+                conn.close()
+        
 
     
 

@@ -48,28 +48,35 @@ def corrReportDL(exp_id,vgos_tag):
     year = '20' + str(vgos_tag[0:2])
     tag = str(vgos_tag.rstrip())
     exp_id = str(exp_id)
+    vgos_exists = []
     if os.path.isfile(os.getcwd()+"/corr_files/"+ exp_id + '.corr'):
         print("Corr report already exists for experiment " + exp_id + ", skipping re-download.")
         return
     else:
-        local_filename = os.path.join(os.getcwd(), tag + ".tgz")
-        lf = open(local_filename, "wb")
-        ftp.retrbinary("RETR /vlbi/ivsdata/vgosdb/" + year + "/" + tag + ".tgz", lf.write)
-        lf.close()
-        tar = tarfile.open(tag + ".tgz")
-        if tag +'/History/'+ tag + '_V000_kMk4.hist' in tar.getnames():
-            member = tar.getmember(tag +'/History/'+ tag + '_V000_kMk4.hist')
-            member.name = 'corr_files/' + exp_id + '.corr'
-            tar.extract(member)
-            tar.close()
+        ftp.retrlines("LIST /vlbi/ivsdata/vgosdb/" + year + "/" + tag + ".tgz", vgos_exists.append)
+        if len(vgos_exists) > 0:
+            local_filename = os.path.join(os.getcwd(), tag + ".tgz")
+            lf = open(local_filename, "wb")
+            ftp.retrbinary("RETR /vlbi/ivsdata/vgosdb/" + year + "/" + tag + ".tgz", lf.write)
+            lf.close()
+            tar = tarfile.open(tag + ".tgz")
+            if tag +'/History/'+ tag + '_V000_kMk4.hist' in tar.getnames():
+                member = tar.getmember(tag +'/History/'+ tag + '_V000_kMk4.hist')
+                member.name = 'corr_files/' + exp_id + '.corr'
+                tar.extract(member)
+                tar.close()
+            else:
+                member = tar.getmember(tag + '/History/'+ tag +'_kMK3DB_V001.hist')
+                member.name = 'corr_files/' + exp_id + '.corr'
+                tar.extract(member)
+                tar.close()
+            os.remove(tag + ".tgz")
+            print("Corr report download complete for experiment " + exp_id + ".")
+            return 
         else:
-            member = tar.getmember(tag + '/History/'+ tag +'_kMK3DB_V001.hist')
-            member.name = 'corr_files/' + exp_id + '.corr'
-            tar.extract(member)
-            tar.close()
-        os.remove(tag + ".tgz")
-        print("Corr report download complete for experiment " + exp_id + ".")
-        return 
+            print("Corr report not available for experiment " + exp_id + ".")
+            return
+    
 
     
 def main(master_schedule, db_name):
